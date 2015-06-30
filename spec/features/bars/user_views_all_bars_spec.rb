@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user can view a list of bars', %Q{
+feature 'user can view a list of bars', %{
   Acceptance Criteria
 [] User can see a list of all bars sorted most recently created
 [] User does not have to be logged in to see a list of bars
