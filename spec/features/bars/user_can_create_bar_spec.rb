@@ -42,14 +42,44 @@ feature 'user can create a new bar', %{
   end
 
   scenario 'user must input name when creating new bar' do
+    bar = FactoryGirl.build(:bar)
+
     visit new_bar_path
+
+    fill_in "Address", with: bar.address
+    fill_in "City", with: bar.city
+    select bar.state, from: "State"
+    fill_in "Zip", with: bar.zip
+    fill_in "Description", with: bar.description
+    fill_in "Url", with: bar.url
+    fill_in "Photo url", with: bar.photo_url
+    fill_in "Seating capacity", with: bar.seating_capacity
+    select "Yes", from: "Food"
+    select "No", from: "Outdoor seating"
+    select "Yes", from: "Pet friendly"
     click_button("Submit")
+
     expect(page).to have_content("Name can't be blank")
   end
 
   scenario 'user must input address when creating new bar' do
+    bar = FactoryGirl.build(:bar)
+
     visit new_bar_path
+
+    fill_in "Name", with: bar.name
+    fill_in "City", with: bar.city
+    select bar.state, from: "State"
+    fill_in "Zip", with: bar.zip
+    fill_in "Description", with: bar.description
+    fill_in "Url", with: bar.url
+    fill_in "Photo url", with: bar.photo_url
+    fill_in "Seating capacity", with: bar.seating_capacity
+    select "Yes", from: "Food"
+    select "No", from: "Outdoor seating"
+    select "Yes", from: "Pet friendly"
     click_button("Submit")
+
     expect(page).to have_content("Address can't be blank")
   end
 
@@ -63,6 +93,16 @@ feature 'user can create a new bar', %{
 
     fill_in "Name", with: bar.name
     fill_in "Address", with: bar.address
+    fill_in "City", with: bar.city
+    select bar.state, from: "State"
+    fill_in "Zip", with: bar.zip
+    fill_in "Description", with: bar.description
+    fill_in "Url", with: bar.url
+    fill_in "Photo url", with: bar.photo_url
+    fill_in "Seating capacity", with: bar.seating_capacity
+    select "Yes", from: "Food"
+    select "No", from: "Outdoor seating"
+    select "Yes", from: "Pet friendly"
     click_button("Submit")
 
     expect(page).to have_content("Bar already exists")
