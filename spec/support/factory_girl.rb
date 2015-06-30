@@ -8,22 +8,10 @@ FactoryGirl.define do
   end
 
   factory :bar do
-    name "Beacon Hill Pub"
-    address "123 Harrison Ave"
+    sequence(:name) { |n| "Mayo's Frozen Bar #{n}" }
+    sequence(:address) { |n| "123#{n} Mass Ave." }
     city "Boston"
     state "MA"
     zip "02156"
-
-    factory :bar2 do
-      name "Drink"
-      address "1234 Quenchtown Lane"
-    end
-
-    factory :bar3 do
-      name "Mayo's Frozen Bar"
-      address "22 Popsicle Lane"
-    end
-
   end
-
 end
