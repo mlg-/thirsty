@@ -1,5 +1,5 @@
 class BarsController < ApplicationController
-	def index
+  def index
     @bars = Bar.all
-	end
+  end
 end
