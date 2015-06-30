@@ -14,5 +14,5 @@ FactoryGirl.define do
     state "MA"
     zip "02156"
   end
-  
+
 end
