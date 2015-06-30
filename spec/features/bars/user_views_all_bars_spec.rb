@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'user can view a list of bars', %{
   Acceptance Criteria
-[] User can see a list of all bars sorted most recently created
-[] User does not have to be logged in to see a list of bars
+[x] User can see a list of all bars sorted most recently created
+[x] User does not have to be logged in to see a list of bars
 } do
 
   scenario 'user visits home page' do
