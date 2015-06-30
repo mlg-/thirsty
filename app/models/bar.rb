@@ -1,6 +1,6 @@
 class Bar < ActiveRecord::Base
   validates :name, presence: true
-  validates :address, presence: true, uniqueness: { scope: [:zip] }
+  validates :address, presence: true, uniqueness: { scope: [:zip], message: "Address already in use." }
   validates :city, presence: true
   validates :state, presence: true
   validates :zip, presence: true
