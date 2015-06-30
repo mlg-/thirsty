@@ -8,7 +8,7 @@ feature 'user can create a new bar', %{
   [x] User receives error if form is not filled out correctly
   [x] User redirect to index once bar is created
   [] User receives error if tries to add a bar without being logged in
-  [] User receives error if bar already exists in database
+  [x] User receives error if bar already exists in database
   } do
 
   scenario 'user can navigate to new bar form' do
@@ -44,12 +44,15 @@ feature 'user can create a new bar', %{
   scenario 'user must input name and address when creating new bar' do
     visit new_bar_path
     click_button("Submit")
-    expect(page).to have_content("Name can't be blank" || "Address can't be blank")
+    expect(page).to have_content("Name can't be blank" ||
+      "Address can't be blank")
   end
 
   scenario 'user cannot input duplicate bar entries' do
-    bar = FactoryGirl.build(:bar, name: "Mayos First Frozen Bar", address: "123 Main St")
-    bar_2 = FactoryGirl.create(:bar, name: "Mayos First Frozen Bar", address: "123 Main St")
+    bar = FactoryGirl.build(:bar, name: "Mayos First Frozen Bar", address:
+      "123 Main St")
+    FactoryGirl.create(:bar, name: "Mayos First Frozen Bar", address:
+      "123 Main St")
 
     visit new_bar_path
 
