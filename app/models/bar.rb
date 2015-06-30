@@ -5,8 +5,8 @@ class Bar < ActiveRecord::Base
   validates :state, presence: true
   validates :zip, presence: true
   validates :description, length: { maximum: 300 }
-  validates :url, format: { with: /(https?:\/\/)?/, 
-    message: "Must be valid URL" }
-  validates :photo_url, format: { with: /(https?:\/\/)?/, 
-    message: "Must be valid URL" }
+  validates :url, format: { with: /(https?:\/\/)?/,
+                            message: "Must be valid URL" }
+  validates :photo_url, format: { with: /(https?:\/\/)?/,
+                                  message: "Must be valid URL" }
 end
