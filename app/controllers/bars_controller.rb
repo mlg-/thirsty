@@ -19,6 +19,7 @@ class BarsController < ApplicationController
   end
 
   protected
+
   def bar_params
     params.require(:bar).permit(
       :name,

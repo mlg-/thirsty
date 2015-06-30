@@ -14,6 +14,7 @@ feature 'user can view a list of bars', %{
     expect(page).to have_content(test_bars[0].name)
     expect(page).to have_content(test_bars[1].name)
     expect(page).to have_content(test_bars[2].name)
-    expect(page.body.index(test_bars[2].name)).to be < page.body.index(test_bars[0].name)
+    expect(page.body.index(test_bars[2].name)).to be < page.body.index(
+      test_bars[0].name)
   end
 end

@@ -11,33 +11,33 @@ feature 'user can create a new bar', %{
   [] User receives error if bar already exists in database
   } do
 
-    scenario 'user can navigate to new bar form' do
-      visit '/'
-      click_link("Add New Bar")
-    end
+  scenario 'user can navigate to new bar form' do
+    visit '/'
+    click_link("Add New Bar")
+  end
 
-    scenario 'user can create a new bar' do
-      bar = FactoryGirl.create(:bar)
-      bar_2 = FactoryGirl.create(:bar)
+  scenario 'user can create a new bar' do
+    bar = FactoryGirl.create(:bar)
+    bar_2 = FactoryGirl.create(:bar)
 
-      visit new_bar_path
+    visit new_bar_path
 
-      fill_in "Name", with: "Mayo's Frozen Baaaaaaahhh"
-      fill_in "Address", with: bar.address
-      fill_in "City", with: bar.city
-      select bar.state, from: "State"
-      fill_in "Zip", with: bar.zip
-      fill_in "Description", with: bar.description
-      fill_in "Url", with: bar.url
-      fill_in "Photo url", with: bar.photo_url
-      fill_in "Seating capacity", with: bar.seating_capacity
-      select "Yes", from: "Food"
-      select "No", from: "Outdoor seating"
-      select "Yes", from: "Pet friendly"
-      click_button("Submit")
+    fill_in "Name", with: "Mayo's Frozen Baaaaaaahhh"
+    fill_in "Address", with: bar.address
+    fill_in "City", with: bar.city
+    select bar.state, from: "State"
+    fill_in "Zip", with: bar.zip
+    fill_in "Description", with: bar.description
+    fill_in "Url", with: bar.url
+    fill_in "Photo url", with: bar.photo_url
+    fill_in "Seating capacity", with: bar.seating_capacity
+    select "Yes", from: "Food"
+    select "No", from: "Outdoor seating"
+    select "Yes", from: "Pet friendly"
+    click_button("Submit")
 
-      expect(page).to have_content("Boston Bars")
-      expect(page).to have_content(bar.name)
-      expect(page).to have_content(bar_2.name)
-    end
+    expect(page).to have_content("Boston Bars")
+    expect(page).to have_content(bar.name)
+    expect(page).to have_content(bar_2.name)
+  end
 end
