@@ -7,13 +7,12 @@ feature 'user can view a list of bars', %{
 } do
 
   scenario 'user visits home page' do
-    create_list(:bar, 3)
+    test_bars = FactoryGirl.create_list(:bar, 3)
     visit '/'
 
     expect(page).to have_content('Boston Bars')
-    expect(page).to have_content(bar1.name)
-    expect(page).to have_content(bar2.name)
-    expect(page).to have_content(bar3.name)
-
+    expect(page).to have_content(test_bars[0].name)
+    expect(page).to have_content(test_bars[1].name)
+    expect(page).to have_content(test_bars[2].name)
   end
 end
