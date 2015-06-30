@@ -41,11 +41,16 @@ feature 'user can create a new bar', %{
     expect(page).to have_content(bar_2.name)
   end
 
-  scenario 'user must input name and address when creating new bar' do
+  scenario 'user must input name when creating new bar' do
     visit new_bar_path
     click_button("Submit")
-    expect(page).to have_content("Name can't be blank" ||
-      "Address can't be blank")
+    expect(page).to have_content("Name can't be blank")
+  end
+
+  scenario 'user must input address when creating new bar' do
+    visit new_bar_path
+    click_button("Submit")
+    expect(page).to have_content("Address can't be blank")
   end
 
   scenario 'user cannot input duplicate bar entries' do

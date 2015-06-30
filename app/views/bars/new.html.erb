@@ -1,42 +1,42 @@
 <h1>Add a New Bar</h1>
 <%= form_for @bar do |f| %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-<%= f.label :address %>
-<%= f.text_field :address %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
 
-<%= f.label :city %>
-<%= f.text_field :city %>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
 
-<%= f.label :state %>
-<%= f.select :state, options_for_select(us_states) %>
+  <%= f.label :state %>
+  <%= f.select :state, options_for_select(us_states) %>
 
-<%= f.label :zip %>
-<%= f.text_field :zip %>
+  <%= f.label :zip %>
+  <%= f.text_field :zip %>
 
-<%= f.label :description %>
-<%= f.text_area :description %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
 
-<%= f.label :url %>
-<%= f.text_field :url %>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
 
-<%= f.label :photo_url %>
-<%= f.text_field :photo_url %>
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
 
-<%= f.label :seating_capacity %>
-<%= f.text_field :seating_capacity %>
+  <%= f.label :seating_capacity %>
+  <%= f.text_field :seating_capacity %>
 
-<%= f.label :food %>
-<%= f.select :food, [["Yes", true], ["No", false]] %>
+  <%= f.label :food %>
+  <%= f.select :food, [["Yes", true], ["No", false]] %>
 
-<%= f.label :outdoor_seating %>
-<%= f.select :outdoor_seating, [["Yes", true], ["No", false]] %>
+  <%= f.label :outdoor_seating %>
+  <%= f.select :outdoor_seating, [["Yes", true], ["No", false]] %>
 
-<%= f.label :pet_friendly %>
-<%= f.select :pet_friendly, [["Yes", true], ["No", false]] %>
+  <%= f.label :pet_friendly %>
+  <%= f.select :pet_friendly, [["Yes", true], ["No", false]] %>
 
-<%= f.submit "Submit" %>
+  <%= f.submit "Submit" %>
 
 <% end %>
