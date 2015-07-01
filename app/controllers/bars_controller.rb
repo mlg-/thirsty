@@ -28,7 +28,23 @@ class BarsController < ApplicationController
   end
 
   def edit
+    if user_signed_in?
+      @bar = Bar.find(params[:id])
+    else
+      flash[:notice] = "You must be signed in to do that"
+      redirect_to bar_path(params[:id])
+    end
+  end
+
+  def update
     @bar = Bar.find(params[:id])
+    if @bar.update(bar_params)
+      flash[:notice] = "Bar updated!"
+      redirect_to bar_path(@bar.id)
+    else
+      flash[:notice] = @bar.errors.full_messages.join(" ")
+      render 'edit'
+    end
   end
 
   protected
