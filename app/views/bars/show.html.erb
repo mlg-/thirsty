@@ -23,3 +23,8 @@
 <p><%= @bar.pet_friendly %></p>
 
 <p><%= link_to "Edit #{@bar.name}", edit_bar_path(@bar.id) %></p>
+<% if user_signed_in? %>
+  <% if @current_user.admin? %>
+    <p><%= link_to "Delete #{@bar.name}", bar_path(@bar.id), method: :delete %></p>
+  <% end %>
+<% end %>

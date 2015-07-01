@@ -25,6 +25,7 @@ class BarsController < ApplicationController
 
   def show
     @bar = Bar.find(params[:id])
+    @current_user = current_user
   end
 
   def edit
@@ -44,6 +45,18 @@ class BarsController < ApplicationController
     else
       flash[:notice] = @bar.errors.full_messages.join(" ")
       render 'edit'
+    end
+  end
+
+  def destroy
+    if current_user.admin?
+      @bar = Bar.find(params[:id])
+      @bar.destroy
+      flash[:notice] = "Bar deleted"
+      redirect_to bars_path
+    else
+      flash[:notice] = "You don't have permission to do that"
+      redirect_to bars_path
     end
   end
 
