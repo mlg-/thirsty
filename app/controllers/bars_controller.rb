@@ -4,7 +4,12 @@ class BarsController < ApplicationController
   end
 
   def new
-    @bar = Bar.new
+    if user_signed_in?
+      @bar = Bar.new
+    else
+      flash[:notice] = "You must be signed in to do that"
+      redirect_to bars_path
+    end
   end
 
   def create
@@ -16,6 +21,14 @@ class BarsController < ApplicationController
       flash[:notice] = @bar.errors.full_messages.join(" ")
       render 'new'
     end
+  end
+
+  def show
+    @bar = Bar.find(params[:id])
+  end
+
+  def edit
+    @bar = Bar.find(params[:id])
   end
 
   protected
