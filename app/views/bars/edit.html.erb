@@ -1,0 +1,36 @@
+<h1>Edit <%= @bar.name %></h1>
+
+<p><%= @bar.address %></p>
+
+<p><%= @bar.city %></p>
+
+<p><%= @bar.state %></p>
+
+<p><%= @bar.zip %></p>
+
+<%= form_for @bar do |f| %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+
+  <%= f.label :seating_capacity %>
+  <%= f.text_field :seating_capacity %>
+
+  <%= f.label :food %>
+  <%= f.select :food, [["Yes", true], ["No", false]] %>
+
+  <%= f.label :outdoor_seating %>
+  <%= f.select :outdoor_seating, [["Yes", true], ["No", false]] %>
+
+  <%= f.label :pet_friendly %>
+  <%= f.select :pet_friendly, [["Yes", true], ["No", false]] %>
+
+<%= f.submit "Submit Changes" %>
+
+<% end %>
