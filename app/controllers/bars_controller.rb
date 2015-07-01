@@ -1,12 +1,12 @@
 class BarsController < ApplicationController
-  before_action :require_login, only:[:new, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :edit, :update, :destroy]
 
   def index
     @bars = Bar.all.order(created_at: :desc)
   end
 
   def new
-      @bar = Bar.new
+    @bar = Bar.new
   end
 
   def create
@@ -71,10 +71,10 @@ class BarsController < ApplicationController
 
   private
 
-    def require_login
-      unless user_signed_in?
-        flash[:error] = "You must be signed in to do that"
-        redirect_to new_user_session_path
-      end
+  def require_login
+    unless user_signed_in?
+    flash[:error] = "You must be signed in to do that"
+    redirect_to new_user_session_path
     end
+  end
 end
