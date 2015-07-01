@@ -14,12 +14,7 @@ feature 'user can create a new bar', %{
   scenario 'user can navigate to new bar form' do
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
+    sign_in_as(user)
 
     visit '/'
     click_link("Add New Bar")
@@ -32,12 +27,7 @@ feature 'user can create a new bar', %{
 
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
+    sign_in_as(user)
 
     visit new_bar_path
 
@@ -65,12 +55,7 @@ feature 'user can create a new bar', %{
 
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
+    sign_in_as(user)
 
     visit new_bar_path
 
@@ -94,12 +79,7 @@ feature 'user can create a new bar', %{
     bar = FactoryGirl.build(:bar)
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
+    sign_in_as(user)
 
     visit new_bar_path
 
@@ -127,12 +107,7 @@ feature 'user can create a new bar', %{
 
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
+    sign_in_as(user)
 
     visit new_bar_path
 

@@ -1,15 +1,12 @@
 class BarsController < ApplicationController
+  before_action :require_login, only:[:new, :edit, :update, :destroy]
+
   def index
     @bars = Bar.all.order(created_at: :desc)
   end
 
   def new
-    if user_signed_in?
       @bar = Bar.new
-    else
-      flash[:notice] = "You must be signed in to do that"
-      redirect_to bars_path
-    end
   end
 
   def create
@@ -25,23 +22,17 @@ class BarsController < ApplicationController
 
   def show
     @bar = Bar.find(params[:id])
-    @current_user = current_user
   end
 
   def edit
-    if user_signed_in?
-      @bar = Bar.find(params[:id])
-    else
-      flash[:notice] = "You must be signed in to do that"
-      redirect_to bar_path(params[:id])
-    end
+    @bar = Bar.find(params[:id])
   end
 
   def update
     @bar = Bar.find(params[:id])
     if @bar.update(bar_params)
       flash[:notice] = "Bar updated!"
-      redirect_to bar_path(@bar.id)
+      redirect_to bar_path(@bar)
     else
       flash[:notice] = @bar.errors.full_messages.join(" ")
       render 'edit'
@@ -77,4 +68,13 @@ class BarsController < ApplicationController
       :outdoor_seating,
       :pet_friendly)
   end
+
+  private
+
+    def require_login
+      unless user_signed_in?
+        flash[:error] = "You must be signed in to do that"
+        redirect_to new_user_session_path
+      end
+    end
 end

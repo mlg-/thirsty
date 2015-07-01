@@ -15,14 +15,9 @@ feature 'administrator user can delete a bar', %{
     admin = FactoryGirl.create(:admin)
     bar = FactoryGirl.create(:bar)
 
-    visit new_user_session_path
+    sign_in_as(admin)
 
-    fill_in 'Email', with: admin.email
-    fill_in 'Password', with: admin.password
-
-    click_button 'Log in'
-
-    visit bar_path(bar.id)
+    visit bar_path(bar)
 
     click_link("Delete")
 
@@ -34,14 +29,9 @@ feature 'administrator user can delete a bar', %{
     user = FactoryGirl.create(:user)
     bar = FactoryGirl.create(:bar)
 
-    visit new_user_session_path
+    sign_in_as(user)
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
-
-    visit bar_path(bar.id)
+    visit bar_path(bar)
 
     expect(page).to_not have_content("Delete")
   end

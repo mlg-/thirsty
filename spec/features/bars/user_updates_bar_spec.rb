@@ -17,14 +17,9 @@ feature "user can update a bar's information", %{
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
+    sign_in_as(user)
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
-
-    visit bar_path(bar.id)
+    visit bar_path(bar)
     click_link("Edit")
 
     expect(page).to have_content("Edit #{bar.name}")
@@ -35,14 +30,9 @@ feature "user can update a bar's information", %{
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
+    sign_in_as(user)
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
-
-    visit bar_path(bar.id)
+    visit bar_path(bar)
     click_link("Edit")
 
     (find_field('Description').value || "#{bar.description}")
@@ -53,14 +43,9 @@ feature "user can update a bar's information", %{
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
+    sign_in_as(user)
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
-
-    visit bar_path(bar.id)
+    visit bar_path(bar)
     click_link("Edit")
 
     fill_in "Description", with: "THIS BARTENDER IS UNDERAGED"
@@ -74,7 +59,7 @@ feature "user can update a bar's information", %{
   scenario 'user sees error message if try to edit and not logged in' do
     bar = FactoryGirl.create(:bar)
 
-    visit bar_path(bar.id)
+    visit bar_path(bar)
     click_link("Edit")
 
     expect(page).to have_content("You must be signed in to do that")

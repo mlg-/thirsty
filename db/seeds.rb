@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+# require 'factory_girl'
+#
+# FactoryGirl.create_list(:bar, 12, message: "Created 12 new bars")
+# FactoryGirl.create_list(:user, 4, message: "Created 4 new users")
+# FactoryGirl.create(:admin, message: "Created admin")
