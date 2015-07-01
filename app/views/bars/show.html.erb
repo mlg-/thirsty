@@ -1,5 +1,9 @@
 <ul>
   <% @reviews.each do |review| %>
-    <li><%= review.title + " " + review.rating.to_s + " " + review.body %> </li>
+    <li><%= review.title + " " + review.rating.to_s + " " + review.body %></li>
+    <h4>  <%= link_to "Edit Review", edit_bar_review_path(@bar, review) %> </h4>
   <% end %>
+
 </ul>
+
+<h4> <%= link_to "Add Review", new_bar_review_path(@bar) %> </h4>

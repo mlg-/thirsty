@@ -24,7 +24,7 @@ FactoryGirl.define do
   end
 
   factory :review do
-    title "This bar is awesome"
+    sequence(:title) { |n| "This bar is awesome #{n}" }
     rating 5
     body "The food, drinks and service are amazing"
     bar_id 3

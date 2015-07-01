@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'user can view all reviews for a bar', %{
   Acceptance Criteria
 [] User can see a list of all reviews sorted by most recently created
-[] User does not have to be logged in to see a list of reviews
+[x] User does not have to be logged in to see a list of reviews
 } do
 
   scenario 'user visits a bar page to see all reviews' do
