@@ -22,4 +22,11 @@ FactoryGirl.define do
     outdoor_seating false
     pet_friendly true
   end
+
+  factory :review do
+    title "This bar is awesome"
+    rating 5
+    body "The food, drinks and service are amazing"
+    bar_id 3
+  end
 end

@@ -18,6 +18,11 @@ class BarsController < ApplicationController
     end
   end
 
+  def show
+    @bar = Bar.find(params[:id])
+    @reviews = @bar.reviews
+  end
+
   protected
 
   def bar_params

@@ -57,7 +57,6 @@ feature 'user can create a new bar', %{
     select "Yes", from: "Food"
     select "No", from: "Outdoor seating"
     select "Yes", from: "Pet friendly"
-    save_and_open_page
     click_button("Submit")
 
     expect(page).to have_content("Name can't be blank")

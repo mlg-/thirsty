@@ -1,8 +1,8 @@
 <h1>Boston Bars</h1>
 <ul>
-<% @bars.each do |bar| %>
-<li>  <%= bar.name %>  </li>
-<% end %>
+  <% @bars.each do |bar| %>
+    <li><%= link_to bar.name, bar_path(bar.id) %> </li>
+  <% end %>
 </ul>
 
 <%= link_to "Add New Bar", new_bar_path %>
