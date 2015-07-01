@@ -1,8 +1,14 @@
-<h1>Boston Bars</h1>
-<ul>
-  <% @bars.each do |bar| %>
-    <li><%= link_to bar.name, bar_path(bar.id) %> </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="large-8 columns">
+    <h1>Boston Bars</h1>
+    <ul>
+      <% @bars.each do |bar| %>
+        <li> <%= link_to bar.name, bar_path(bar) %> </li>
+      <% end %>
+    </ul>
+  </div>
 
-<%= link_to "Add New Bar", new_bar_path %>
+  <div class="large-4 columns">
+    <%= link_to "Add New Bar", new_bar_path %>
+  </div>
+</div>

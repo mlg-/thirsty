@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :require_login, only: [:new, :edit, :create, :update]
+
   def new
     @bar = Bar.find(params[:bar_id])
     @review = Review.new
@@ -21,10 +23,29 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
+  def update
+    @review = Review.find(params[:id])
+    @review.update_all
+    if @review.save
+      redirect_to bar_path(params[:bar_id]), notice: "Your review has been edited."
+    else
+      flash[:notice] = @review.errors.full_messages.join(" ")
+      render :new
+    end
+  end
+
   protected
 
   def review_params
     params.require(:review).permit(:title, :rating, :body, :bar_id)
   end
 
+  private
+
+  def require_login
+    unless user_signed_in?
+      flash[:error] = "You must be signed in to do that"
+      redirect_to new_user_session_path
+    end
+  end
 end

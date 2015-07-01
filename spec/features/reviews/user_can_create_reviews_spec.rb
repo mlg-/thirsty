@@ -18,6 +18,8 @@ feature 'user can create a review for a bar', %{
   scenario 'user can create a review for a bar' do
     bar = FactoryGirl.create(:bar)
     review = FactoryGirl.build(:review)
+    user = FactoryGirl.create(:user)
+    sign_in_as(user)
     # visit new_bar_review_path(bar)
     visit root_path
     click_link (bar.name)
@@ -29,13 +31,14 @@ feature 'user can create a review for a bar', %{
     click_button("Submit")
 
     expect(page).to have_content('Add Review')
-    save_and_open_page
     expect(page).to have_content(review.title)
   end
 
   scenario 'user receives error if form is not filled out correctly' do
     bar = FactoryGirl.create(:bar)
     review = FactoryGirl.build(:review)
+    user = FactoryGirl.create(:user)
+    sign_in_as(user)
     # visit new_bar_review_path(bar)
     visit root_path
     click_link (bar.name)

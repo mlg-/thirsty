@@ -1,3 +1,34 @@
+<h4> <%= link_to "Add Review", new_bar_review_path(@bar) %> </h4>
+
+<h1><%= @bar.name %></h1>
+
+<p><%= @bar.address %></p>
+
+<p><%= @bar.city %></p>
+
+<p><%= @bar.state %></p>
+
+<p><%= @bar.zip %></p>
+
+<p><%= @bar.description %></p>
+
+<p><%= link_to "#{@bar.url}", @bar.url %></p>
+
+<p><%= image_tag ("#{@bar.photo_url}") %></p>
+
+<p><%= @bar.seating_capacity %></p>
+
+<p><%= @bar.food %></p>
+
+<p><%= @bar.outdoor_seating %></p>
+
+<p><%= @bar.pet_friendly %></p>
+
+<p><%= link_to "Edit #{@bar.name}", edit_bar_path(@bar) %></p>
+<% if user_signed_in? && current_user.admin? %>
+  <p><%= link_to "Delete #{@bar.name}", bar_path(@bar), method: :delete %></p>
+<% end %>
+
 <ul>
   <% @reviews.each do |review| %>
     <li><%= review.title + " " + review.rating.to_s + " " + review.body %></li>
@@ -5,5 +36,3 @@
   <% end %>
 
 </ul>
-
-<h4> <%= link_to "Add Review", new_bar_review_path(@bar) %> </h4>

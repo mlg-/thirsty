@@ -9,6 +9,7 @@ feature 'user can view all reviews for a bar', %{
   scenario 'user visits a bar page to see all reviews' do
     bar = FactoryGirl.create(:bar)
     review = FactoryGirl.create(:review, bar_id: bar.id)
+    
     visit root_path
     click_link (bar.name)
 
