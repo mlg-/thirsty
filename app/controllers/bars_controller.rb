@@ -9,7 +9,7 @@ class BarsController < ApplicationController
 
   def create
     @bar = Bar.new(bar_params)
-    if @bar.save!
+    if @bar.save
       flash[:notice] = "Bar Added."
       redirect_to bars_path
     else
