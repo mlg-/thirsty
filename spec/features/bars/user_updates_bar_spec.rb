@@ -7,7 +7,8 @@ feature "user can update a bar's information", %{
 } do
 
   #  Acceptance Criteria
-  # [x] User can navigate to a page and change bar’s details except name and address
+  # [x] User can navigate to a page and
+  #     change bar’s details except name and address
   # [x] User must be logged in to change bar details
   # [x] User views form prepopulated with bar details
   # [X] User is redirected to bar detail page and can see their changes

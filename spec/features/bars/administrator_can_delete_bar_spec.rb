@@ -4,11 +4,12 @@ feature 'administrator user can delete a bar', %{
   As an administrator
   I want to delete an bar
   So that no one can review it
-  } do
-    #Acceptance Criteria
-#   [X] Administrator can delete bars from bar details page
-#   [X] Bar is no longer visible on index page
-#   [X] A user cannot delete a bar
+} do
+
+  # Acceptance Criteria
+  # [X] Administrator can delete bars from bar details page
+  # [X] Bar is no longer visible on index page
+  # [X] A user cannot delete a bar
 
   scenario 'administrator can delete a bar' do
     admin = FactoryGirl.create(:admin)

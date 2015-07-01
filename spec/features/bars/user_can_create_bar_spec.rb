@@ -154,7 +154,7 @@ feature 'user can create a new bar', %{
   end
 
   scenario 'user must be signed in to add a bar' do
-    bar = FactoryGirl.build(:bar)
+    FactoryGirl.build(:bar)
 
     visit bars_path
 
