@@ -22,7 +22,7 @@ class BarsController < ApplicationController
 
   def show
     @bar = Bar.find(params[:id])
-    @reviews = @bar.reviews
+    @reviews = @bar.reviews.reverse
   end
 
   def edit

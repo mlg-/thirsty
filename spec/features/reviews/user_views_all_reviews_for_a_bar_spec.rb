@@ -8,13 +8,16 @@ feature 'user can view all reviews for a bar', %{
 
   scenario 'user visits a bar page to see all reviews' do
     bar = FactoryGirl.create(:bar)
-    review = FactoryGirl.create(:review, bar_id: bar.id)
+    review1 = FactoryGirl.create(:review, bar: bar)
+    review2 = FactoryGirl.create(:review, bar: bar)
     
     visit root_path
     click_link (bar.name)
 
-    expect(page).to have_content(review.title)
-    expect(page).to have_content(review.rating.to_s)
-    expect(page).to have_content(review.body)
+    expect(page).to have_content(review1.title)
+    expect(page).to have_content(review1.rating.to_s)
+    expect(page).to have_content(review1.body)
+    expect(page.body.index(review2.title)).to be < page.body.index(
+      review1.title)
   end
 end

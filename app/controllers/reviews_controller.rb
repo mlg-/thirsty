@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :require_login, only: [:new, :edit, :create, :update]
+  before_action :require_login, only: [:new, :edit, :create, :update, :destroy]
 
   def new
     @bar = Bar.find(params[:bar_id])
@@ -32,6 +32,17 @@ class ReviewsController < ApplicationController
       flash[:notice] = @review.errors.full_messages.join(" ")
       render :edit
     end
+  end
+
+  def destroy
+    @bar = Bar.find(params[:bar_id])
+    @review = Review.find(params[:id])
+    if @review.destroy
+      flash[:notice] = 'Your Review Has Been Deleted'
+    else
+      flash[:notice] = @review.errors.full_messages.join(" ")
+    end
+    redirect_to bar_path(@bar)
   end
 
   protected
