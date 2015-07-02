@@ -37,7 +37,13 @@ feature 'user updates profile', %{
 
     click_link("Sign Out")
 
-    sign_in_as(user)
+    visit new_user_session_path
+
+    fill_in 'Email', with: "bloop@bleep.com"
+    fill_in 'Password', with: user.password
+
+    click_button 'Log in'
+    expect(page).to have_content("Sign Out")
   end
 
   scenario 'user cannot update with an invalid email' do
@@ -70,7 +76,13 @@ feature 'user updates profile', %{
 
     click_link("Sign Out")
 
-    sign_in_as(user)
+    visit new_user_session_path
+
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: "THIS IS SO SECURE!"
+    click_button 'Log in'
+
+    expect(page).to have_content("Sign Out")
   end
 
   scenario 'user enters invalid password and recieves error' do
@@ -80,15 +92,16 @@ feature 'user updates profile', %{
 
     visit edit_user_registration_path(user)
 
-    fill_in("Password", with: "")
-    fill_in("Password confirmation", with: "")
+    fill_in("Password", with: "m")
+    fill_in("Password confirmation", with: "m")
     fill_in("Current password", with: user.password)
     click_button("Update")
 
-    expect(page).to have_content("Your account has been updated successfully.")
+    expect(page).to have_content("Password is too short (minimum is 8 characters)")
 
     click_link("Sign Out")
 
     sign_in_as(user)
+    expect(page).to have_content("Sign Out")
   end
 end
