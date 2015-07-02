@@ -1,6 +1,4 @@
-
-n = rand(1..2000)
-12.times do
+12.times do |n|
   Bar.create!(name: "Mayos Frozen Bar #{n}",
               address: "234 That Street #{n}",
               city: "Boston",
@@ -13,5 +11,4 @@ n = rand(1..2000)
               food: true,
               outdoor_seating: false,
               pet_friendly: true)
-  n += 1
 end
