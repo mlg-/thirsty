@@ -12,18 +12,18 @@ feature 'user deletes account', %{
   # [X] User can no longer sign in
 
   scenario('user can delete account from profile page')do
-  user = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user)
 
-  sign_in_as(user)
+    sign_in_as(user)
 
-  visit edit_user_registration_path(user)
-  click_button "Cancel my account"
+    visit edit_user_registration_path(user)
+    click_button "Cancel my account"
 
-  expect(page).to have_content("Your account has been successfully cancelled.")
+    expect(page).to have_content("Your account has been successfully cancelled.")
 
-  sign_in_as(user)
+    sign_in_as(user)
 
-  expect(page).to have_content("Invalid email or password.")
+    expect(page).to have_content("Invalid email or password.")
   end
 
 end
