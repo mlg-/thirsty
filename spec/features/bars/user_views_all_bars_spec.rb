@@ -1,10 +1,14 @@
 require 'rails_helper'
 
 feature 'user can view a list of bars', %{
-  Acceptance Criteria
-[x] User can see a list of all bars sorted most recently created
-[x] User does not have to be logged in to see a list of bars
+  As a user
+  I want see a list of all the bars
+  So I can find a bar to visit
 } do
+
+#   Acceptance Criteria
+# [x] User can see a list of all bars sorted most recently created
+# [x] User does not have to be logged in to see a list of bars
 
   scenario 'user visits home page' do
     test_bars = FactoryGirl.create_list(:bar, 3)
