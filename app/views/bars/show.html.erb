@@ -29,11 +29,12 @@
   <p><%= link_to "Delete #{@bar.name}", bar_path(@bar), method: :delete %></p>
 <% end %>
 
-<ul>
+<div>
   <% @reviews.each do |review| %>
-    <li><%= review.title + " " + review.rating.to_s + " " + review.body %></li>
-    <p> <%= link_to "Edit Review", edit_bar_review_path(@bar, review) %> </p>
-    <p> <%= link_to "Delete Review", bar_review_path(@bar, review) , method: :delete %></p>
+    <div><%= review.title + " " + review.rating.to_s + " " + review.body %></div>
+    <% if current_user == review.user %>
+      <div> <%= link_to "Edit Review", edit_bar_review_path(@bar, review) %></div>
+      <div> <%= link_to "Delete Review", bar_review_path(@bar, review), method: :delete %></div>
+    <% end %>
   <% end %>
-
-</ul>
+</div>

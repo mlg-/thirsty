@@ -9,8 +9,8 @@ Acceptance Criteria
 
   scenario 'user can delete their own review for a bar' do
     bar = FactoryGirl.create(:bar)
-    review = FactoryGirl.create(:review, bar: bar)
     user = FactoryGirl.create(:user)
+    review = FactoryGirl.create(:review, bar: bar, user: user)
     sign_in_as(user)
 
     visit root_path
@@ -23,13 +23,14 @@ Acceptance Criteria
 
   scenario 'user cannot delete someone elses review for a bar' do
     bar = FactoryGirl.create(:bar)
-    review = FactoryGirl.create(:review, bar: bar)
     user = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user)
+    review = FactoryGirl.create(:review, bar: bar, user: user)
 
+    sign_in_as (user2)
     visit root_path
     click_link (bar.name)
-    click_link("Delete Review", match: :first)
 
-    expect(page).to have_content("You must be signed in to do that")
+    expect(page).to_not have_content("Delete Review")
   end
 end

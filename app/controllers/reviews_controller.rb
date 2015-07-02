@@ -9,7 +9,8 @@ class ReviewsController < ApplicationController
   def create
     @bar = Bar.find(params[:bar_id])
     @review = Review.new(review_params)
-    @review.bar_id = @bar.id
+    @review.user = current_user
+    @review.bar = @bar
     if @review.save
       redirect_to bar_path(params[:bar_id]), notice: "Your review has been created successfully."
     else
@@ -21,6 +22,9 @@ class ReviewsController < ApplicationController
   def edit
     @bar = Bar.find(params[:bar_id])
     @review = Review.find(params[:id])
+    if current_user != @review.user
+      redirect_to bars_path(@bar)
+    end
   end
 
   def update
@@ -35,6 +39,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
     @bar = Bar.find(params[:bar_id])
     @review = Review.find(params[:id])
     if @review.destroy

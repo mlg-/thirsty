@@ -8,8 +8,9 @@ feature 'user can view all reviews for a bar', %{
 
   scenario 'user visits a bar page to see all reviews' do
     bar = FactoryGirl.create(:bar)
-    review1 = FactoryGirl.create(:review, bar: bar)
-    review2 = FactoryGirl.create(:review, bar: bar)
+    user = FactoryGirl.create(:user)
+    review1 = FactoryGirl.create(:review, bar: bar, user: user)
+    review2 = FactoryGirl.create(:review, bar: bar, user: user)
     
     visit root_path
     click_link (bar.name)

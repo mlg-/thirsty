@@ -17,8 +17,8 @@ feature 'user can create a review for a bar', %{
 
   scenario 'user can create a review for a bar' do
     bar = FactoryGirl.create(:bar)
-    review = FactoryGirl.build(:review)
     user = FactoryGirl.create(:user)
+    review = FactoryGirl.build(:review, user: user)
     sign_in_as(user)
     # visit new_bar_review_path(bar)
     visit root_path
@@ -36,8 +36,8 @@ feature 'user can create a review for a bar', %{
 
   scenario 'user receives error if form is not filled out correctly' do
     bar = FactoryGirl.create(:bar)
-    review = FactoryGirl.build(:review)
     user = FactoryGirl.create(:user)
+    review = FactoryGirl.build(:review, user: user)
     sign_in_as(user)
     # visit new_bar_review_path(bar)
     visit root_path
@@ -53,8 +53,8 @@ feature 'user can create a review for a bar', %{
 
   scenario 'user can create a review for a bar' do
     bar = FactoryGirl.create(:bar)
-    review = FactoryGirl.build(:review)
     user = FactoryGirl.create(:user)
+    review = FactoryGirl.build(:review, user: user)
     # sign_in_as(user)
     # visit new_bar_review_path(bar)
     visit root_path

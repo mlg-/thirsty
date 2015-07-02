@@ -10,9 +10,9 @@ Acceptance Criteria
 
     scenario 'user can navigate to a page and change review details' do
       bar = FactoryGirl.create(:bar)
-      review = FactoryGirl.create(:review, bar: bar)
-      edit_review = FactoryGirl.create(:review, title: "I can edit this", bar: bar)
       user = FactoryGirl.create(:user)
+      review = FactoryGirl.create(:review, bar: bar, user: user)
+      edit_review = FactoryGirl.create(:review, title: "I can edit this", bar: bar, user: user)
       sign_in_as(user)
 
       visit root_path
@@ -28,9 +28,9 @@ Acceptance Criteria
 
     scenario 'user receives error if form is filled out incorrectly' do
       bar = FactoryGirl.create(:bar)
-      review = FactoryGirl.create(:review, bar: bar)
-      edit_review = FactoryGirl.create(:review, title: "I can edit this", bar: bar)
       user = FactoryGirl.create(:user)
+      review = FactoryGirl.create(:review, bar: bar, user: user)
+      edit_review = FactoryGirl.create(:review, title: "I can edit this", bar: bar, user: user)
       sign_in_as(user)
 
       visit root_path
@@ -44,18 +44,16 @@ Acceptance Criteria
 
     end
 
-    scenario 'user receives error if form is filled out incorrectly' do
+    scenario 'user cannot edit someone elses review' do
       bar = FactoryGirl.create(:bar)
-      review = FactoryGirl.create(:review, bar: bar)
-      edit_review = FactoryGirl.create(:review, title: "I can edit this", bar: bar)
       user = FactoryGirl.create(:user)
-      # sign_in_as(user)
+      review = FactoryGirl.create(:review, bar: bar, user: user)
+      edit_review = FactoryGirl.create(:review, title: "I can edit this", bar: bar, user: user)
 
       visit root_path
       click_link (bar.name)
-      click_link("Edit Review", match: :first)
 
-      expect(page).to have_content("You must be signed in to do that")
+      expect(page).to_not have_content("Edit Review")
 
     end
   end

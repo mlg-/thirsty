@@ -32,6 +32,7 @@ FactoryGirl.define do
     sequence(:title) { |n| "This bar is awesome #{n}" }
     rating 5
     body "The food, drinks and service are amazing"
-    bar_id 3
+    bar_id 1
+    user_id 1
   end
 end
