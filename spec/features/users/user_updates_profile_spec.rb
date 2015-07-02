@@ -97,7 +97,8 @@ feature 'user updates profile', %{
     fill_in("Current password", with: user.password)
     click_button("Update")
 
-    expect(page).to have_content("Password is too short (minimum is 8 characters)")
+    expect(page).to have_content("Password is too short
+                                 (minimum is 8 characters)")
 
     click_link("Sign Out")
 
