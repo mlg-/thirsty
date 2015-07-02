@@ -6,7 +6,7 @@ n = rand(1..2000)
               city: "Boston",
               state: "Massachusetts",
               zip: "02345",
-              description:"You won't believe it. You just won't",
+              description: "You won't believe it. You just won't",
               url: "http://thatsite.com",
               photo_url: "http://thatothersite.com",
               seating_capacity: 4,
