@@ -19,7 +19,8 @@ feature 'user deletes account', %{
     visit edit_user_registration_path(user)
     click_button "Cancel my account"
 
-    expect(page).to have_content("Your account has been successfully cancelled.")
+    expect(page).to have_content("Your account has been
+                                  successfully cancelled.")
 
     sign_in_as(user)
 
