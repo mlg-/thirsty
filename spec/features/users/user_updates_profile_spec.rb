@@ -4,7 +4,7 @@ feature 'user updates profile', %{
   As an authenticated user
   I want to update my information
   So that I can keep my profile up to date
-} do
+  } do
   #   Acceptance Criteria
   # [X] User can navigate to profile page
   # [X] User can change email and sign in
