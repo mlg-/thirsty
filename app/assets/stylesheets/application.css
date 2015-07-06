@@ -15,3 +15,14 @@
  *= require foundation_and_overrides
 
  */
+/*= require foundation_and_overrides */
+body {
+  background: url("background.jpg");
+  background-size: cover;
+}
+
+.title {
+  background-color: grey;
+  margin-left: auto;
+  margin-right: auto;
+}

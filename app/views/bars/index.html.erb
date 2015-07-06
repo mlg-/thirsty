@@ -1,14 +1,18 @@
 <div class="row">
   <div class="large-8 columns">
-    <h1>Boston Bars</h1>
+      <div class="title">
+        <h1>Boston Bars</h1>
+      </div>
     <ul>
       <% @bars.each do |bar| %>
-        <li>  <%= bar.name %>  </li>
+      <div class="bar row">
+        <li>  <%=link_to bar.name, bar_path(bar)%>  </li>
+      </div>
       <% end %>
     </ul>
   </div>
 
   <div class="large-4 columns">
-    <%= link_to "Add New Bar", new_bar_path %>
+    <a href="/bars/new" class="button radius">Add New Bar</a>
   </div>
 </div>

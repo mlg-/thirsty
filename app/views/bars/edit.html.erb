@@ -1,36 +1,34 @@
 <h1>Edit <%= @bar.name %></h1>
 
-<p><%= @bar.address %></p>
+<p><%= @bar.address %><br>
 
-<p><%= @bar.city %></p>
+<%= "#{@bar.city},#{@bar.state} #{@bar.zip}" %></p>
 
-<p><%= @bar.state %></p>
+<div class="large-6 columns">
+  <%= form_for @bar do |f| %>
 
-<p><%= @bar.zip %></p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
 
-<%= form_for @bar do |f| %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+    <%= f.label :photo_url %>
+    <%= f.text_field :photo_url %>
 
-  <%= f.label :url %>
-  <%= f.text_field :url %>
+    <%= f.label :seating_capacity %>
+    <%= f.text_field :seating_capacity %>
 
-  <%= f.label :photo_url %>
-  <%= f.text_field :photo_url %>
+    <%= f.label :food %>
+    <%= f.select :food, [["Yes", true], ["No", false]] %>
 
-  <%= f.label :seating_capacity %>
-  <%= f.text_field :seating_capacity %>
+    <%= f.label :outdoor_seating %>
+    <%= f.select :outdoor_seating, [["Yes", true], ["No", false]] %>
 
-  <%= f.label :food %>
-  <%= f.select :food, [["Yes", true], ["No", false]] %>
+    <%= f.label :pet_friendly %>
+    <%= f.select :pet_friendly, [["Yes", true], ["No", false]] %>
 
-  <%= f.label :outdoor_seating %>
-  <%= f.select :outdoor_seating, [["Yes", true], ["No", false]] %>
+  <%= f.submit "Submit Changes" %>
 
-  <%= f.label :pet_friendly %>
-  <%= f.select :pet_friendly, [["Yes", true], ["No", false]] %>
-
-<%= f.submit "Submit Changes" %>
-
-<% end %>
+  <% end %>
+</div>
