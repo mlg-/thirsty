@@ -1,11 +1,11 @@
 <div class="row">
   <div class="large-8 columns">
       <div class="title">
-        <h1>Boston Bars</h1>
+        <h1 class="text-center">Boston Bars</h1>
       </div>
     <ul>
       <% @bars.each do |bar| %>
-      <div class="bar row">
+      <div class="bar_row">
         <li>  <%=link_to bar.name, bar_path(bar)%>  </li>
       </div>
       <% end %>

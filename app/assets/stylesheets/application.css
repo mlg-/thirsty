@@ -16,13 +16,41 @@
 
  */
 /*= require foundation_and_overrides */
+h1 {
+  color: white
+}
+
 body {
   background: url("background.jpg");
   background-size: cover;
 }
 
 .title {
-  background-color: grey;
-  margin-left: auto;
-  margin-right: auto;
+  background:rgba(0,0,0,0.5);
+  padding: 10px 20px 10px 20px;
+}
+
+.bar_row {
+  background:rgba(0,0,0,0.5);
+  margin: 3px;
+  padding: 10px;
+}
+
+.form {
+  background:rgba(0,0,0,0.5);
+}
+
+.submit_button{
+  margin-top: 10px;
+}
+
+ul
+{
+    list-style-type: none;
+}
+
+form {
+  background:rgba(0,0,0,0.5);
+  padding: 30px;
+  color: white;
 }

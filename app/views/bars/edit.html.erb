@@ -1,34 +1,54 @@
-<h1>Edit <%= @bar.name %></h1>
+<div class="form">
+  <div class="large-6 columns">
 
-<p><%= @bar.address %><br>
+    <div class="title">
+      <h1>Edit <%= @bar.name %></h1>
+      <p><%= @bar.address %><br>
+      <%= "#{@bar.city}, #{@bar.state} #{@bar.zip}" %></p>
+    </div>
 
-<%= "#{@bar.city},#{@bar.state} #{@bar.zip}" %></p>
+    <%= form_for @bar do |f| %>
 
-<div class="large-6 columns">
-  <%= form_for @bar do |f| %>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
 
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
 
-    <%= f.label :url %>
-    <%= f.text_field :url %>
+      <%= f.label :photo_url %>
+      <%= f.text_field :photo_url %>
 
-    <%= f.label :photo_url %>
-    <%= f.text_field :photo_url %>
+    <div class="row">
+      <div class="large-3 columns">
+          <%= f.label :seating_capacity %>
+          <%= f.text_field :seating_capacity %>
+      </div>
 
-    <%= f.label :seating_capacity %>
-    <%= f.text_field :seating_capacity %>
+      <div class="large-3 columns">
+          <%= f.label :food %>
+          <%= f.select :food, [["Yes", true], ["No", false]] %>
+      </div>
 
-    <%= f.label :food %>
-    <%= f.select :food, [["Yes", true], ["No", false]] %>
+      <div class="large-3 columns">
+          <%= f.label :outdoor_seating %>
+          <%= f.select :outdoor_seating, [["Yes", true], ["No", false]] %>
+      </div>
 
-    <%= f.label :outdoor_seating %>
-    <%= f.select :outdoor_seating, [["Yes", true], ["No", false]] %>
+      <div class="large-3 columns">
+        <div class="row collapse">
+              <%= f.label :pet_friendly %>
+              <%= f.select :pet_friendly, [["Yes", true], ["No", false]] %>
+          </div>
+        </div>
+    </div>
 
-    <%= f.label :pet_friendly %>
-    <%= f.select :pet_friendly, [["Yes", true], ["No", false]] %>
-
-  <%= f.submit "Submit Changes" %>
-
-  <% end %>
+    <div class="row">
+      <div class="large-3 columns">
+        <div class="submit_button">
+          <%= f.submit "Submit Changes" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
