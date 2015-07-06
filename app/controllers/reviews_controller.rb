@@ -8,10 +8,9 @@ class ReviewsController < ApplicationController
 
   def create
     @bar = Bar.find(params[:bar_id])
-    binding.pry
-    @review = Review.new(review_params, user: current_user, bar: @bar)
-    # @review.user = current_user
-    # @review.bar = @bar
+    @review = Review.new(review_params)
+    @review.user = current_user
+    @review.bar = @bar
     if @review.save
       flash[:notice] = "Your review has been created successfully."
       redirect_to bar_path(params[:bar_id])
