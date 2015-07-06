@@ -1,0 +1,15 @@
+<h1>Add a New Review</h1>
+<%= form_for [@bar, @review] do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :rating %>
+  <%= f.select :rating, [5,4,3,2,1] %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+
+  <%= f.submit "Submit" %>
+
+<% end %>
