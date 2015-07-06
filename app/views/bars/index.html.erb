@@ -1,8 +1,7 @@
 <div class="row">
   <div class="large-8 columns">
     <h1>Boston Bars</h1>
-    <i class="fi-social-apple"></i>
-
+<%= fa_icon "camera-retro" %>
     <ul>
       <% @bars.each do |bar| %>
         <li> <%= link_to bar.name, bar_path(bar) %> </li>

@@ -32,10 +32,11 @@
 <div>
   <% @reviews.order(created_at: :desc).each do |review| %>
     <div>
-      <%= link_to "Upvote", review_votes_path(review, ) %>
+      <%= link_to "Upvote", review_votes_path(review, value: 1), method: :post %>
       <% if review.votes.nil? %>
         <%= review.votes.all.reduce[:+] %>
       <% end %>
+      <%= link_to "Downvote", review_votes_path(review, value: -1), method: :post %>
     </div>
     <div><%= review.title + " " + review.rating.to_s + " " + review.body %></div>
     <% if user_signed_in? && (current_user == review.user || current_user.admin?) %>

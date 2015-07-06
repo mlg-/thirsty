@@ -9,25 +9,34 @@ class VotesController < ApplicationController
       @votes.each do |vote|
         score << vote[:value]
       end
-      @score = score.reduce[:+]
+      @score = score.reduce(:+)
     end
   end
 
   def create
-    @review = Review.find(params[:id])
-    @vote = Vote.new(votes_params)
-    if @vote.user_id == current_user
-      if @vote.save
-        return "sucess"
-      else
-        return "failure"
-      end
+    @review = Review.find(params[:review_id])
+    @vote = Vote.where(user_id: current_user, review_id: @review).first
+    if @vote.nil?
+      @vote = Vote.new(vote_params)
+      @vote.user = current_user
+    else
+      @vote.value = params[:value]
     end
+    if @vote.save!
+      redirect_to review_votes_path(@review, @vote)
+      return "sucess"
+    else
+      redirect_to review_votes_path(@review, @vote)
+      return "failure"
+    end
+    @vote
   end
 
   protected
 
-  def votes_params
-    params.require(:votes).permit(:value)
+  def vote_params
+    params
+    .permit(:value)
+    .merge(review_id: params[:review_id])
   end
 end
