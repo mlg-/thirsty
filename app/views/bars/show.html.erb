@@ -22,11 +22,12 @@
 
       Pet Friendly: <%= @bar.pet_friendly %></p>
 
-      <h4><%= link_to "Edit #{@bar.name}", edit_bar_path(@bar) %></h4>
+      <p><%= link_to "Edit #{@bar.name}", edit_bar_path(@bar) %></p>
       <% if user_signed_in? && current_user.admin? %>
-        <h4><%= link_to "Delete #{@bar.name}", bar_path(@bar), method: :delete %></h4>
+        <p><%= link_to "Delete #{@bar.name}", bar_path(@bar), method: :delete %></p>
       <% end %>
       <h4> <%= link_to "Add Review", new_bar_review_path(@bar) %> </h4>
+
     </div>
 
     <div class="small-6 large-4 columns">
@@ -41,6 +42,9 @@
     <div><%= review.title + " " + review.rating.to_s + " " + review.body %></div>
     <% if user_signed_in? && (current_user == review.user || current_user.admin?) %>
       <div><h4><%= link_to "Delete Review", bar_review_path(@bar, review), method: :delete %></h4></div>
+      <% if current_user == review.user && !current_user.admin? %>
+        <div><h4><%= link_to "Edit Review", edit_bar_review_path(@bar, review) %></h4></div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
