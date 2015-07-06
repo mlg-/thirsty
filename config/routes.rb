@@ -6,4 +6,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   end
 
+  resources :reviews, only: [:new, :create, :edit, :update, :destroy] do
+    resources :votes, only: [:index, :create]
+  end
+
 end
