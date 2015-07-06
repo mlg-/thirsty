@@ -44,9 +44,12 @@ body {
   margin-top: 10px;
 }
 
-ul
-{
-    list-style-type: none;
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: white;
 }
 
 form {
