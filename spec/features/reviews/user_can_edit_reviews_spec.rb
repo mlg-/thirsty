@@ -11,8 +11,9 @@ Acceptance Criteria
     scenario 'user can navigate to a page and change review details' do
       bar = FactoryGirl.create(:bar)
       user = FactoryGirl.create(:user)
-      review = FactoryGirl.create(:review, bar: bar, user: user)
-      edit_review = FactoryGirl.create(:review, title: "I can edit this", bar: bar, user: user)
+      FactoryGirl.create(:review, bar: bar, user: user)
+      edit_review = FactoryGirl.build(:review, title: "I can edit this",
+                                        bar: bar, user: user)
       sign_in_as(user)
 
       visit root_path
@@ -29,8 +30,7 @@ Acceptance Criteria
     scenario 'user receives error if form is filled out incorrectly' do
       bar = FactoryGirl.create(:bar)
       user = FactoryGirl.create(:user)
-      review = FactoryGirl.create(:review, bar: bar, user: user)
-      edit_review = FactoryGirl.create(:review, title: "I can edit this", bar: bar, user: user)
+      FactoryGirl.create(:review, bar: bar, user: user)
       sign_in_as(user)
 
       visit root_path
@@ -47,9 +47,11 @@ Acceptance Criteria
     scenario 'user cannot edit someone elses review' do
       bar = FactoryGirl.create(:bar)
       user = FactoryGirl.create(:user)
-      review = FactoryGirl.create(:review, bar: bar, user: user)
-      edit_review = FactoryGirl.create(:review, title: "I can edit this", bar: bar, user: user)
+      user2 = FactoryGirl.create(:user)
+      FactoryGirl.create(:review, bar: bar, user: user)
 
+      sign_in_as(user2)
+      
       visit root_path
       click_link (bar.name)
 

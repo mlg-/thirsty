@@ -10,17 +10,12 @@ feature 'user can create a review for a bar', %{
 [x] User receives error if they try to review a bar without being logged in
   } do
 
-  scenario 'user can navigate to create a review' do
-    bar = FactoryGirl.create(:bar)
-
-  end
 
   scenario 'user can create a review for a bar' do
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
     review = FactoryGirl.build(:review, user: user)
     sign_in_as(user)
-    # visit new_bar_review_path(bar)
     visit root_path
     click_link (bar.name)
     click_link ("Add Review")
@@ -39,7 +34,6 @@ feature 'user can create a review for a bar', %{
     user = FactoryGirl.create(:user)
     review = FactoryGirl.build(:review, user: user)
     sign_in_as(user)
-    # visit new_bar_review_path(bar)
     visit root_path
     click_link (bar.name)
     click_link ("Add Review")
@@ -49,16 +43,13 @@ feature 'user can create a review for a bar', %{
     click_button("Submit")
 
     expect(page).to have_content('Add a New Review')
+    expect(page).to have_content("Title can't be blank")
   end
 
-  scenario 'user can create a review for a bar' do
-    bar = FactoryGirl.create(:bar)
-    user = FactoryGirl.create(:user)
-    review = FactoryGirl.build(:review, user: user)
-    # sign_in_as(user)
-    # visit new_bar_review_path(bar)
+  scenario 'user must be signed in to create a review' do
+    review = FactoryGirl.build(:review)
     visit root_path
-    click_link (bar.name)
+    click_link (review.bar.name)
     click_link ("Add Review")
 
     expect(page).to have_content('You must be signed in to do that')

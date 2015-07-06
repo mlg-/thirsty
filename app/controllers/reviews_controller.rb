@@ -29,12 +29,17 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    if @review.update(review_params)
-      flash[:notice] = 'Review edited'
-      redirect_to bar_path(params[:bar_id])
+    if current_user == @review.user
+      if @review.update(review_params)
+        flash[:notice] = 'Review edited'
+        redirect_to bar_path(params[:bar_id])
+      else
+        flash[:notice] = @review.errors.full_messages.join(" ")
+        render :edit
+      end
     else
-      flash[:notice] = @review.errors.full_messages.join(" ")
-      render :edit
+      redirect_to bars_path
+      flash[:notice] = 'You do not have permisson to do that'
     end
   end
 
@@ -42,12 +47,23 @@ class ReviewsController < ApplicationController
     @user = current_user
     @bar = Bar.find(params[:bar_id])
     @review = Review.find(params[:id])
-    if @review.destroy
-      flash[:notice] = 'Your Review Has Been Deleted'
+    if current_user == @review.user
+      if @review.destroy
+        flash[:notice] = 'Your Review Has Been Deleted'
+      else
+        flash[:notice] = @review.errors.full_messages.join(" ")
+      end
+      redirect_to bar_path(@bar)
+    elsif current_user.admin?
+      if @review.destroy
+        flash[:notice] = 'Your Review Has Been Deleted'
+      else
+        flash[:notice] = @review.errors.full_messages.join(" ")
+      end
     else
-      flash[:notice] = @review.errors.full_messages.join(" ")
+      redirect_to bars_path
+      flash[:notice] = 'You do no have permisson to do that'
     end
-    redirect_to bar_path(@bar)
   end
 
   protected

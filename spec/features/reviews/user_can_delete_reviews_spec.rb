@@ -33,4 +33,17 @@ Acceptance Criteria
 
     expect(page).to_not have_content("Delete Review")
   end
+
+  scenario 'an admin can delete any review' do
+    bar = FactoryGirl.create(:bar)
+    user = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:admin)
+    review = FactoryGirl.create(:review, bar: bar, user: user)
+
+    sign_in_as (user2)
+    visit root_path
+    click_link (bar.name)
+
+    expect(page).to have_content("Delete Review")
+  end
 end
