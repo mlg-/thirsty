@@ -20,14 +20,14 @@ class VotesController < ApplicationController
       if @vote.save
         return "sucess"
       else
-        return "failure" 
+        return "failure"
       end
     end
   end
 
   protected
+  
   def votes_params
     params.require(:votes).permit(:value)
-
   end
 end
