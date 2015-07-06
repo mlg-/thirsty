@@ -1,32 +1,36 @@
-<div class="row">
-  <div class="small-2 large-4 columns">
-    <p><%= image_tag ("#{@bar.photo_url}") %><br>
-    <%= link_to "#{@bar.url}", @bar.url %></p>
-    </p>
-  </div>
+<div class="title">
+  <div class="row">
+    <div class="small-2 large-4 columns">
+      <p><%= image_tag ("#{@bar.photo_url}") %><br>
+      <%= link_to "#{@bar.url}", @bar.url %></p>
+      </p>
+    </div>
 
-  <div class="small-4 large-4 columns">
-    <h1><%= @bar.name %></h1>
+    <div class="small-4 large-4 columns">
+      <h1><%= @bar.name %></h1>
 
-    <p><%= @bar.address %><br>
+      <p><%= @bar.address %><br>
 
-    <%= "#{@bar.city}, #{@bar.state} #{@bar.zip}" %></p>
+      <%= "#{@bar.city}, #{@bar.state} #{@bar.zip}" %></p>
 
-    <p>Seating Capacity: <%= @bar.seating_capacity %><br>
+      <p>Seating Capacity: <%= @bar.seating_capacity %><br>
 
-    Serves Food: <%= @bar.food %><br>
+      Serves Food: <%= @bar.food %><br>
 
-    Outdoor Seating: <%= @bar.outdoor_seating %><br>
+      Outdoor Seating: <%= @bar.outdoor_seating %><br>
 
-    Pet Friendly: <%= @bar.pet_friendly %></p>
-    <p><%= @bar.description %></p>
+      Pet Friendly: <%= @bar.pet_friendly %></p>
 
-    <p><%= link_to "Edit #{@bar.name}", edit_bar_path(@bar) %></p>
-    <% if user_signed_in? && current_user.admin? %>
-      <p><%= link_to "Delete #{@bar.name}", bar_path(@bar), method: :delete %></p>
-    <% end %>
-  </div>
-  <div class="small-6 large-4 columns">
-    <p><%= @bar.description %></p>
+      <p><%= link_to "Edit #{@bar.name}", edit_bar_path(@bar) %></p>
+      <% if user_signed_in? && current_user.admin? %>
+        <p><%= link_to "Delete #{@bar.name}", bar_path(@bar), method: :delete %></p>
+      <% end %>
+    </div>
+
+    <div class="small-6 large-4 columns">
+      <div class="bar_description">
+      <p><%= @bar.description %></p>
+      </div>
+    </div>
   </div>
 </div>
