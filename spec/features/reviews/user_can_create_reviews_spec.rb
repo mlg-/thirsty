@@ -11,12 +11,10 @@ feature 'user can create a review for a bar', %{
   } do
 
   scenario 'user can create a review for a bar' do
-    bar = FactoryGirl.create(:bar)
-    user = FactoryGirl.create(:user)
-    review = FactoryGirl.build(:review, user: user)
-    sign_in_as(user)
+    review = FactoryGirl.build(:review)
+    sign_in_as(review.user)
     visit root_path
-    click_link (bar.name)
+    click_link (review.bar.name)
     click_link ("Add Review")
 
     fill_in "Title", with: review.title

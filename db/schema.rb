@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 20150706144436) do
     t.string   "title",      null: false
     t.integer  "rating",     null: false
     t.string   "body",       null: false
-    t.string   "bar_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "bar_id",     null: false
   end
 
   create_table "users", force: :cascade do |t|

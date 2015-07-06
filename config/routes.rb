@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     resources :votes, only: [:index, :create]
   end
 
+  resources :users, only: [:show, :edit, :update, :delete]
 end
