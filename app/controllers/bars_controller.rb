@@ -22,7 +22,7 @@ class BarsController < ApplicationController
 
   def show
     @bar = Bar.find(params[:id])
-    @reviews = @bar.reviews.order(created_at: :desc)
+    @reviews = @bar.reviews
   end
 
   def edit
