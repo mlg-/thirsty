@@ -23,7 +23,7 @@ feature 'user can view all reviews for a bar', %{
       review1.title)
   end
 
-    scenario 'a visitor can see all reviews on a bar page' do
+  scenario 'a visitor can see all reviews on a bar page' do
     review1 = FactoryGirl.create(:review)
     review2 = FactoryGirl.create(:review, bar: review1.bar)
 

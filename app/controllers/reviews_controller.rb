@@ -12,7 +12,8 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.bar = @bar
     if @review.save
-      redirect_to bar_path(params[:bar_id]), notice: "Your review has been created successfully."
+      redirect_to bar_path(params[:bar_id]),
+                          notice: "Your review has been created successfully."
     else
       flash[:notice] = @review.errors.full_messages.join(" ")
       render :new

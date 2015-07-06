@@ -10,7 +10,6 @@ feature 'user can create a review for a bar', %{
 [x] User receives error if they try to review a bar without being logged in
   } do
 
-
   scenario 'user can create a review for a bar' do
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)

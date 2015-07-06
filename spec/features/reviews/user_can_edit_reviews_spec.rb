@@ -13,7 +13,7 @@ Acceptance Criteria
       user = FactoryGirl.create(:user)
       FactoryGirl.create(:review, bar: bar, user: user)
       edit_review = FactoryGirl.build(:review, title: "I can edit this",
-                                        bar: bar, user: user)
+                                      bar: bar, user: user)
       sign_in_as(user)
 
       visit root_path
@@ -49,9 +49,8 @@ Acceptance Criteria
       user = FactoryGirl.create(:user)
       user2 = FactoryGirl.create(:user)
       FactoryGirl.create(:review, bar: bar, user: user)
-
       sign_in_as(user2)
-      
+
       visit root_path
       click_link (bar.name)
 

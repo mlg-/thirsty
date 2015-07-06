@@ -10,7 +10,7 @@ Acceptance Criteria
   scenario 'user can delete their own review for a bar' do
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
-    review = FactoryGirl.create(:review, bar: bar, user: user)
+    FactoryGirl.create(:review, bar: bar, user: user)
     sign_in_as(user)
 
     visit root_path
@@ -25,7 +25,7 @@ Acceptance Criteria
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
-    review = FactoryGirl.create(:review, bar: bar, user: user)
+    FactoryGirl.create(:review, bar: bar, user: user)
 
     sign_in_as (user2)
     visit root_path
@@ -38,7 +38,7 @@ Acceptance Criteria
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:admin)
-    review = FactoryGirl.create(:review, bar: bar, user: user)
+    FactoryGirl.create(:review, bar: bar, user: user)
 
     sign_in_as (user2)
     visit root_path
