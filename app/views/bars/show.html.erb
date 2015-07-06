@@ -1,3 +1,5 @@
+<h4> <%= link_to "Add Review", new_bar_review_path(@bar) %> </h4>
+
 <h1><%= @bar.name %></h1>
 
 <p><%= @bar.address %></p>
@@ -26,3 +28,15 @@
 <% if user_signed_in? && current_user.admin? %>
   <p><%= link_to "Delete #{@bar.name}", bar_path(@bar), method: :delete %></p>
 <% end %>
+
+<div>
+  <% @reviews.order(created_at: :desc).each do |review| %>
+    <div><%= review.title + " " + review.rating.to_s + " " + review.body %></div>
+    <% if user_signed_in? && (current_user == review.user || current_user.admin?) %>
+      <div><%= link_to "Delete Review", bar_review_path(@bar, review), method: :delete %></div>
+      <% if current_user == review.user && !current_user.admin? %>
+        <div><%= link_to "Edit Review", edit_bar_review_path(@bar, review) %></div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
