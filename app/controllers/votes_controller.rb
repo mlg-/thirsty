@@ -26,7 +26,7 @@ class VotesController < ApplicationController
   end
 
   protected
-  
+
   def votes_params
     params.require(:votes).permit(:value)
   end
