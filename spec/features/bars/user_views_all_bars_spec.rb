@@ -22,16 +22,27 @@ feature 'user can view a list of bars', %{
       test_bars[0].name)
   end
 
-  scenario 'user sees 10 bars per page, can change pages' do
-    test_bars = FactoryGirl.create_list(:bar, 11)
+  scenario 'user sees 10 bars per page' do
+    first_bar = FactoryGirl.create(:bar)
+    test_bars = FactoryGirl.create_list(:bar, 10)
     visit '/'
 
-    expect(page).to have_content(test_bars[9].name)
-    expect(page).to_not have_content(test_bars[0].name)
+    test_bars.each do |bar|
+      expect(page).to have_content(bar.name)
+    end
 
-    click_link("Next")
+    expect(page).to_not have_content(first_bar.name)
+  end
 
-    expect(page).to have_content(test_bars[0].name)
-    expect(page).to_not have_content(test_bars[9].name)
+  scenario 'user sees 11th bar on second page' do
+    first_bar = FactoryGirl.create(:bar)
+    test_bars = FactoryGirl.create_list(:bar, 10)
+    visit '/'
+
+    click_link("2")
+    expect(page).to have_content(first_bar.name)
+    test_bars.each do |bar|
+      expect(page).to_not have_content(bar.name)
+    end
   end
 end

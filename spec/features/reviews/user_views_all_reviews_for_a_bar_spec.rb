@@ -37,21 +37,37 @@ feature 'user can view all reviews for a bar', %{
       review1.title)
   end
 
-  scenario 'user sees 5 reviews per page, can change pages' do
+  scenario 'user sees 5 reviews per page' do
     test_bar = FactoryGirl.create(:bar)
-
-    test_reviews = FactoryGirl.create_list(:review, 6, bar: test_bar)
+    first_review = FactoryGirl.create(:review, bar: test_bar)
+    test_reviews = FactoryGirl.create_list(:review, 5, bar: test_bar)
 
     visit '/'
 
     click_link (test_bar.name)
 
-    expect(page).to have_content(test_reviews[4].title)
-    expect(page).to_not have_content(test_reviews[0].title)
+    test_reviews.each do |review|
+      expect(page).to have_content(review.title)
+    end
+
+    expect(page).to_not have_content(first_review.title)
+  end
+
+  scenario 'user sees 6th review on second page' do
+    test_bar = FactoryGirl.create(:bar)
+    first_review = FactoryGirl.create(:review, bar: test_bar)
+    test_reviews = FactoryGirl.create_list(:review, 5, bar: test_bar)
+
+    visit '/'
+
+    click_link (test_bar.name)
 
     click_link("Next")
 
-    expect(page).to have_content(test_reviews[0].title)
-    expect(page).to_not have_content(test_reviews[4].title)
+    test_reviews.each do |review|
+      expect(page).to_not have_content(review.title)
+    end
+
+    expect(page).to have_content(first_review.title)
   end
 end
