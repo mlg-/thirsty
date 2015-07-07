@@ -1,15 +1,23 @@
-<h1>Edit your review</h1>
-<%= form_for @review, url: { action: "update" } do |f| %>
+<div class="form">
+  <div class="large-6 columns">
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+    <%= form_for @review, url: { action: "update" } do |f| %>
+      <h1>Edit your review</h1>
 
-  <%= f.label :rating %>
-  <%= f.select :rating, [5,4,3,2,1] %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
 
-  <%= f.label :body %>
-  <%= f.text_area :body %>
+      <%= f.label :rating %>
+      <%= f.select :rating, [5,4,3,2,1] %>
 
-  <%= f.submit "Edit" %>
+      <!-- <%= f.label :rating_one, "1" %>
+      <%= f.radio_button :rating, 1 %> -->
 
-<% end %>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+
+      <%= f.submit "Edit", class: "button radius" %>
+
+    <% end %>
+  </div>
+</div>
