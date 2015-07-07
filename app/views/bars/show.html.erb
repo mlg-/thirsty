@@ -43,13 +43,13 @@
   <% @reviews.order(created_at: :desc).each do |review| %>
     <div class="review">
       <h3><%= review.title %></h3>
-      <h4><%= review.rating.to_s %>/5</h4>
+      <h4><%= review.rating %>/5</h4>
       <p><%= review.body %></p>
     </div>
 
     <% if user_signed_in? && (current_user == review.user || current_user.admin?) %>
       <div class="button small">
-        <%= link_to "Delete Review", bar_review_path(@bar, review), method: :delete %>
+        <%= link_to "Delete Review", bar_review_path(@bar, review), data: { confirm: "Are you sure?" }, method: :delete %>
       </div>
       <% if current_user == review.user && !current_user.admin? %>
         <div class="button small">

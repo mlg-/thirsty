@@ -36,4 +36,23 @@ feature 'user can view all reviews for a bar', %{
     expect(page.body.index(review2.title)).to be < page.body.index(
       review1.title)
   end
+
+  scenario 'user sees 5 reviews per page, can change pages' do
+    test_bar = FactoryGirl.create(:bar)
+
+   test_reviews = FactoryGirl.create_list(:review, 6, bar: test_bar)
+
+
+    visit '/'
+
+    click_link (test_bar.name)
+
+    expect(page).to have_content(test_reviews[4].title)
+    expect(page).to_not have_content(test_reviews[0].title)
+
+    click_link("Next")
+
+    expect(page).to have_content(test_reviews[0].title)
+    expect(page).to_not have_content(test_reviews[4].title)
+  end
 end
