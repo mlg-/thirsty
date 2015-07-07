@@ -13,4 +13,6 @@ class Bar < ActiveRecord::Base
                             message: "Must be valid URL" }
   validates :photo_url, format: { with: /(https?:\/\/)?/,
                                   message: "Must be valid URL" }
+
+  paginates_per 10
 end

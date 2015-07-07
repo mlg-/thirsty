@@ -20,6 +20,13 @@ h1 {
   color: white
 }
 
+h3 {
+  color: #ffd3aa
+}
+
+h4 {
+  color: #ffffff
+}
 body {
   background: url("background.jpg");
   background-size: cover;
@@ -46,6 +53,7 @@ body {
 
 ul {
   list-style-type: none;
+  margin: 0px;
 }
 
 a {
@@ -54,10 +62,15 @@ a {
 
 form {
   background:rgba(0,0,0,0.5);
-  padding: 30px;
+  padding: 0px 30px;
   color: white;
 }
 
 .bar_description {
   padding-top: 130px;
+}
+
+.review {
+  background:rgba(0,0,0,0.5);
+  padding: 10px 20px 10px 20px;
 }
