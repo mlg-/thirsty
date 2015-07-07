@@ -1,15 +1,10 @@
 class VotesController < ApplicationController
   def index
-    @review = Review.find(params[:review_id])
-    @votes = @review.votes
-    if @votes.empty?
-      @score = 0
-    else
-      score = []
-      @votes.each do |vote|
-        score << vote[:value]
-      end
-      @score = score.reduce(:+)
+    review = Review.find(params[:review_id])
+    total = review.votes.map {|v| v[:value]}
+    @score = total.reduce(:+)
+    respond_to do |format|
+      format.json { render json: @score }
     end
   end
 
@@ -26,13 +21,10 @@ class VotesController < ApplicationController
     end
 
     if @vote.save!
-      redirect_to review_votes_path(@review, @vote)
-      return "sucess"
-    else
-      redirect_to review_votes_path(@review, @vote)
-      return "failure"
+      respond_to do |format|
+        format.json { render json: @vote }
+      end
     end
-    @vote
   end
 
   protected
