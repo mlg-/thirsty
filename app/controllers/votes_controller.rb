@@ -19,9 +19,12 @@ class VotesController < ApplicationController
     if @vote.nil?
       @vote = Vote.new(vote_params)
       @vote.user = current_user
+    elsif @vote.value == params[:value].to_i
+      @vote.value = 0
     else
-      @vote.value = params[:value]
+      @vote.value = params[:value].to_i
     end
+
     if @vote.save!
       redirect_to review_votes_path(@review, @vote)
       return "sucess"

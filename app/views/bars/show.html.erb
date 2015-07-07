@@ -39,13 +39,13 @@
 
 <div>
   <% @reviews.order(created_at: :desc).each do |review| %>
-    <div>
-      <%= link_to "Upvote", review_votes_path(review, value: 1), method: :post %>
-      <% if review.votes.nil? %>
-        <%= review.votes.all.reduce[:+] %>
+    <div id="review-<%= review.id %>">
+      <%= link_to "Upvote", review_votes_path(review, value: 1), method: :post, class: "upvote" %>
+      <% unless review.votes.nil? %>
+        <% total = review.votes.map {|v| v[:value]} %>
+        <div class="votes"><%= total.reduce(:+) %></div>
       <% end %>
       <%= link_to "Downvote", review_votes_path(review, value: -1), method: :post %>
-    </div>
     <div><%= review.title + " " + review.rating.to_s + " " + review.body %></div>
     <% if user_signed_in? && (current_user == review.user || current_user.admin?) %>
       <div><h4><%= link_to "Delete Review", bar_review_path(@bar, review), method: :delete %></h4></div>
@@ -53,5 +53,6 @@
         <div><h4><%= link_to "Edit Review", edit_bar_review_path(@bar, review) %></h4></div>
       <% end %>
     <% end %>
-  <% end %>
+    <% end %>
+    </div>
 </div>
