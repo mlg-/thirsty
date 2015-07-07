@@ -78,7 +78,9 @@ So I can show how I feel
     expect(page).to have_content('1')
   end
 
-  # Next, test to make sure user can undo downvote or upvote
+  scenario 'user can undo upvote' do
+  end
+
 end
 
 

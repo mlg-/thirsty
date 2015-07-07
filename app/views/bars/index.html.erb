@@ -1,16 +1,22 @@
 <div class="row">
   <div class="large-8 columns">
-    <h1>Boston Bars</h1>
-<%= fa_icon "camera-retro" %>
+    <div class="title">
+      <h1 class="text-center">Boston Bars</h1>
+    </div>
     <ul>
       <% @bars.each do |bar| %>
-        <li> <%= link_to bar.name, bar_path(bar) %> </li>
+      <div class="bar_row">
+        <li>  <%=link_to bar.name, bar_path(bar)%>  </li>
+      </div>
       <% end %>
     </ul>
   </div>
 
   <div class="large-4 columns">
-    <%= link_to "Add New Bar", new_bar_path %>
+    <div class="icon">
+    <img alt="Icon" src="/assets/icon.png" />
+  </div>
+      <a href="/bars/new" class="button radius">Add New Bar</a>
   </div>
 </div>
 

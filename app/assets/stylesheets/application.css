@@ -15,3 +15,49 @@
  *= require foundation_and_overrides
  *= require font-awesome
 */
+
+h1 {
+  color: white
+}
+
+body {
+  background: url("background.jpg");
+  background-size: cover;
+}
+
+.title {
+  background:rgba(0,0,0,0.5);
+  padding: 10px 20px 10px 20px;
+}
+
+.bar_row {
+  background:rgba(0,0,0,0.5);
+  margin: 3px;
+  padding: 10px;
+}
+
+.form {
+  background:rgba(0,0,0,0.5);
+}
+
+.submit_button{
+  margin-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: white;
+}
+
+form {
+  background:rgba(0,0,0,0.5);
+  padding: 30px;
+  color: white;
+}
+
+.bar_description {
+  padding-top: 130px;
+}
