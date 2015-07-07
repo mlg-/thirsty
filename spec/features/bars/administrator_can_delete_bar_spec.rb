@@ -2,14 +2,16 @@ require "rails_helper"
 
 feature 'administrator user can delete a bar', %{
   As an administrator
-  I want to delete an bar
-  So that no one can review it
-} do
+  I want to delete a bar
+  Because the information is no longer correct
 
-  # Acceptance Criteria
-  # [X] Administrator can delete bars from bar details page
-  # [X] Bar is no longer visible on index page
-  # [X] A user cannot delete a bar
+  Acceptance Criteria
+  [x] Admin can delete a bar
+  [x] User cannot delete a bar
+  [x] Bar is no longer in database
+  [x] Bar details page no longer exists
+  [x] Reviews of this bar no longer exist
+  } do
 
   scenario 'administrator can delete a bar' do
     admin = FactoryGirl.create(:admin)
@@ -22,7 +24,6 @@ feature 'administrator user can delete a bar', %{
     click_link("Delete")
 
     expect(page).to have_content("Bar deleted")
-    expect(page).to_not have_content(bar.name)
   end
 
   scenario 'user cannot delete bar' do
@@ -34,5 +35,48 @@ feature 'administrator user can delete a bar', %{
     visit bar_path(bar)
 
     expect(page).to_not have_content("Delete")
+  end
+
+  scenario 'bar is no longer in database' do
+    admin = FactoryGirl.create(:admin)
+    bar = FactoryGirl.create(:bar)
+
+    sign_in_as(admin)
+
+    visit bar_path(bar)
+
+    click_link("Delete")
+
+    expect(page).to_not have_content(bar.name)
+  end
+
+  scenario 'bar details page no longer exists' do
+    admin = FactoryGirl.create(:admin)
+    bar = FactoryGirl.create(:bar)
+
+    sign_in_as(admin)
+
+    visit bar_path(bar.id)
+
+    click_link("Delete")
+
+    expect(page).to_not have_content(bar.name)
+    expect(page).to_not have_content(bar.address)
+    expect(page).to_not have_content(bar.state)
+  end
+
+  scenario 'reviews of this bar no longer exist' do
+    admin = FactoryGirl.create(:admin)
+    bar = FactoryGirl.create(:bar)
+    review = FactoryGirl.create(:review, bar: bar)
+
+    sign_in_as(admin)
+
+    visit bar_path(bar)
+
+    click_link("Delete", match: :first)
+
+    expect(page).to_not have_content(review.title)
+    expect(page).to_not have_content(review.body)
   end
 end

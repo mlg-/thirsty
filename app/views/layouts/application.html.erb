@@ -11,7 +11,10 @@
     <ul class="title-area">
       <li class="name">
         <h1><a href="/">Thirsty</a></h1>
-      </li>
+        <% if user_signed_in? && current_user.admin? %>
+          <a href="/users">Manage Users</a>
+            </li>
+        <% end %>
     </ul>
 
     <section class="top-bar-section">
