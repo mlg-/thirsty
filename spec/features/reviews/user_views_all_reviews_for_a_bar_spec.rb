@@ -40,8 +40,7 @@ feature 'user can view all reviews for a bar', %{
   scenario 'user sees 5 reviews per page, can change pages' do
     test_bar = FactoryGirl.create(:bar)
 
-   test_reviews = FactoryGirl.create_list(:review, 6, bar: test_bar)
-
+    test_reviews = FactoryGirl.create_list(:review, 6, bar: test_bar)
 
     visit '/'
 
