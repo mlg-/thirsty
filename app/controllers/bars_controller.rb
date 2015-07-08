@@ -4,7 +4,7 @@ class BarsController < ApplicationController
   def index
     if params[:search]
       @bars = Bar.search(params[:search]).order(created_at: :desc).
-                  page(params[:page])
+        page(params[:page])
     else
       @bars = Bar.all.order(created_at: :desc).page(params[:page])
     end
