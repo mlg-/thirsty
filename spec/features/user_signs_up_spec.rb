@@ -18,11 +18,13 @@ feature 'user registers', %Q{
     fill_in 'Email', with: 'john@example.com'
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
+    attach_file "Profile Photo", "#{Rails.root}/spec/support/images/headshot.jpg"
 
     click_button 'Sign up'
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
+    expect(User.first.profile_photo.file.filename).to eq("headshot.jpg")
   end
 
   scenario 'provide invalid registration information' do
@@ -31,5 +33,9 @@ feature 'user registers', %Q{
     click_button 'Sign up'
     expect(page).to have_content("can't be blank")
     expect(page).to_not have_content('Sign Out')
+  end
+
+  scenario 'user can add profile photo' do
+
   end
 end

@@ -17,3 +17,6 @@
 
 # Ignore env
 .env
+
+# Ignore photo uploads
+public/uploads
