@@ -43,16 +43,20 @@
 
           <div class="large-3 columns">
               <%= f.label :food, "Food" %>
+
               <%= f.radio_button :food, true %>
               <%= f.label :food, "Yes", value: "true"  %>
+
               <%= f.radio_button :food, false, checked: true %>
               <%= f.label :food, "No", value: "false" %>
           </div>
 
           <div class="large-3 columns">
             <%= f.label :outdoor_seating, "Outdoor Seating" %>
+
             <%= f.radio_button :outdoor_seating, true %>
             <%= f.label :outdoor_seating, "Yes", value: "true"  %>
+
             <%= f.radio_button :outdoor_seating, false, checked: true %>
             <%= f.label :outdoor_seating, "No", value: "false" %>
           </div>
@@ -60,8 +64,10 @@
           <div class="large-3 columns">
             <div class="row collapse">
               <%= f.label :pet_friendly, "Pet Friendly" %>
+
               <%= f.radio_button :pet_friendly, true %>
               <%= f.label :pet_friendly, "Yes", value: "true"  %>
+
               <%= f.radio_button :pet_friendly, false, checked: true %>
               <%= f.label :pet_friendly, "No", value: "false" %>
               </div>
