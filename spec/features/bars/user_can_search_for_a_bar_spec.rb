@@ -6,21 +6,21 @@ feature 'user searches for a bar', %{
   So I find the ones that meet my needs
 } do
 
-# Acceptance Criteria
-# [] User can search for bar
-# [] Search returns list of bars matching users search criteria
+    # Acceptance Criteria
+    # [x] User can search for bar
+    # [x] Search returns list of bars matching users search criteria
 
-    scenario 'user searches for a bar' do
-      bar = FactoryGirl.create(:bar)
-      bar2 = FactoryGirl.create(:bar, name: "The Other Bar")
+  scenario 'user searches for a bar' do
+    bar = FactoryGirl.create(:bar)
+    bar2 = FactoryGirl.create(:bar, name: "The Other Bar")
 
-      visit root_path
-      fill_in "search", with: "Mayo"
+    visit root_path
+    fill_in "search", with: "Mayo"
 
-      click_button "Search"
+    click_button "Search"
 
-      expect(page).to have_content(bar.name)
-      expect(page).to_not have_content(bar2.name)
-    end
+    expect(page).to have_content(bar.name)
+    expect(page).to_not have_content(bar2.name)
+  end
 
 end
