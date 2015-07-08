@@ -2,7 +2,7 @@ class BarsController < ApplicationController
   before_action :require_login, only: [:new, :edit, :update, :destroy]
 
   def index
-    @bars = Bar.all.order(created_at: :desc)
+    @bars = Bar.all.order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -22,6 +22,7 @@ class BarsController < ApplicationController
 
   def show
     @bar = Bar.find(params[:id])
+    @reviews = @bar.reviews.page(params[:page])
   end
 
   def edit

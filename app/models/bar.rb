@@ -1,5 +1,5 @@
 class Bar < ActiveRecord::Base
-  # has_many :reviews, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :name, presence: true
   validates :address, presence: true,
@@ -13,4 +13,6 @@ class Bar < ActiveRecord::Base
                             message: "Must be valid URL" }
   validates :photo_url, format: { with: /(https?:\/\/)?/,
                                   message: "Must be valid URL" }
+
+  paginates_per 10
 end

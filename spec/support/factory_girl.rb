@@ -27,4 +27,12 @@ FactoryGirl.define do
     outdoor_seating false
     pet_friendly true
   end
+
+  factory :review do
+    sequence(:title) { |n| "This bar is awesome #{n}" }
+    rating 5
+    body "The food, drinks and service are amazing"
+    bar
+    user
+  end
 end

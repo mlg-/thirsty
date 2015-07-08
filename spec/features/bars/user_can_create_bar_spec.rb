@@ -45,7 +45,7 @@ feature 'user can create a new bar', %{
     select "Yes", from: "Pet friendly"
     click_button("Submit")
 
-    expect(page).to have_content("Boston Bars")
+    expect(page).to have_content("Thirsty?")
     expect(page).to have_content(bar.name)
     expect(page).to have_content(bar_2.name)
   end
