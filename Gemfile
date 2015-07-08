@@ -32,10 +32,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 # Icons
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 # Paginaion
 gem 'kaminari'
+
+# Carrierwave integration
+gem 'fog'
+gem 'carrierwave'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,6 +52,8 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  # ENV file support
+  gem 'dotenv-rails'
 end
 
 group :test do

@@ -56,6 +56,12 @@
     
 
       <div class="small-9 columns">
+        <div class="review-user-details">
+          <% unless review.user.profile_photo.nil? %>
+            <%= image_tag(review.user.profile_photo, class: "thumbnail") %>
+          <% end %>
+          <h3><%= review.user.email %> says...</h3>
+        </div>
         <h3><%= review.title %></h3>
         <h4><%= review.rating %>/5</h4>
         <p><%= review.body %></p>

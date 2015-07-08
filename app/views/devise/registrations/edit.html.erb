@@ -17,6 +17,15 @@
       <% end %>
 
       <div class="field">
+        <% unless current_user.profile_photo.nil? %>
+          <%= image_tag(current_user.profile_photo) %>
+        <p>Your current profile photo.</p>
+        <% end %>
+        <%= f.label :profile_photo, "Change Your Profile Photo" %><br />
+        <%= f.file_field :profile_photo %>
+      </div>
+
+      <div class="field">
         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
