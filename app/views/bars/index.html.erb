@@ -9,6 +9,13 @@
   </div>
 
   <div class="large-4 columns">
+    <%= form_tag bars_path, method: :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", name: nil %>
+    </p>
+    <% end %>
+
     <%= link_to "Add New Bar", new_bar_path %>
   </div>
 </div>
