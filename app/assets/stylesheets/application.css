@@ -13,9 +13,9 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+ *= require font-awesome
+*/
 
- */
-/*= require foundation_and_overrides */
 h1 {
   color: white
 }
@@ -68,6 +68,28 @@ form {
 
 .bar_description {
   padding-top: 130px;
+}
+
+.gold {
+  color: #ffd3aa;
+  text-shadow: none;
+}
+
+a.upvote, a.downvote {
+  font-size: 1.5em;
+  text-shadow: 1px 1px 1px #fff;
+  color: #4f0f0f;
+}
+
+.votes {
+  font-size: 1.3em;
+  margin-left: 6px;
+}
+
+.review-container {
+  border-bottom: 1px solid ;
+  padding: 15px 0;
+  clear: both;
 }
 
 .review {
