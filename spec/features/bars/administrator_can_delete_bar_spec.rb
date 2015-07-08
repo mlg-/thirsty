@@ -67,7 +67,6 @@ feature 'administrator user can delete a bar', %{
 
   scenario 'reviews of this bar no longer exist' do
     admin = FactoryGirl.create(:user, admin: true)
-    bar = FactoryGirl.create(:bar)
     review = FactoryGirl.create(:review)
 
     sign_in_as(admin)

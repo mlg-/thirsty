@@ -42,7 +42,6 @@ feature 'administrator can delete review', %{
   scenario 'nonadmin cannot delete a review' do
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
-    review = FactoryGirl.create(:review, bar: bar)
 
     sign_in_as(user)
     visit root_path

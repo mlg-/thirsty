@@ -42,7 +42,6 @@ feature 'administrator can delete user', %{
   scenario 'nonadmin cannot delete user' do
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:user)
-    admin = FactoryGirl.create(:user, admin: true, email: "Admin@Voight.com")
 
     sign_in_as(user)
     visit root_path
