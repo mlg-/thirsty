@@ -26,6 +26,7 @@ class BarsController < ApplicationController
 
   def show
     @bar = Bar.find(params[:id])
+    @reviews = @bar.reviews.page(params[:page])
   end
 
   def edit
