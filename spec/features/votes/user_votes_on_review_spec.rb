@@ -100,7 +100,7 @@ So I can show how I feel
     visit bar_path(upvote.review.bar)
 
     expect(page.find("#review-#{upvote.review.id}").find(
-      ".votes")).to have_content(3)
+          ".votes")).to have_content(3)
   end
 
 end
