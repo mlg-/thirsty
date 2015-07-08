@@ -16,7 +16,7 @@ feature "user can update a bar's information", %{
   scenario 'user can navigate to a bar\'s edit page' do
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
-
+    
     sign_in_as(user)
 
     visit bar_path(bar)

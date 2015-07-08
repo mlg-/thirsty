@@ -6,9 +6,9 @@ feature 'user searches for a bar', %{
   So I find the ones that meet my needs
 } do
 
-    # Acceptance Criteria
-    # [x] User can search for bar
-    # [x] Search returns list of bars matching users search criteria
+  #  Acceptance Criteria
+  # [x] User can search for bar
+  # [x] Search returns list of bars matching users search criteria
 
   scenario 'user searches for a bar' do
     bar = FactoryGirl.create(:bar)
