@@ -7,12 +7,12 @@ $( "a.upvote i" ).click(function( event ) {
   $(downvote).removeClass("gold");
 
   $.ajax({
-  type: "POST",
-  url: "/reviews/" + reviewId + "/votes",
-  data: { value: 1 },
-  dataType: "json",
-  success: function(){
-    currentVoteCount(reviewId);
+    type: "POST",
+    url: "/reviews/" + reviewId + "/votes",
+    data: { value: 1 },
+    dataType: "json",
+    success: function(){
+      currentVoteCount(reviewId);
     }
   });
 });
@@ -26,12 +26,12 @@ $( "a.downvote i" ).click(function( event ) {
   $(upvote).removeClass("gold");
 
   $.ajax({
-  type: "POST",
-  url: "/reviews/" + reviewId + "/votes",
-  data: { value: -1 },
-  dataType: "json",
-  success: function(){
-    currentVoteCount(reviewId);
+    type: "POST",
+    url: "/reviews/" + reviewId + "/votes",
+    data: { value: -1 },
+    dataType: "json",
+    success: function(){
+      currentVoteCount(reviewId);
     }
   });
 });

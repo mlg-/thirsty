@@ -61,7 +61,7 @@
         <p><%= review.body %></p>
         <% if user_signed_in? && (current_user == review.user || current_user.admin?) %>
           <div class="button small"><%= link_to "Delete Review", bar_review_path(@bar, review), method: :delete %></div>
-          <% if current_user == review.user && !current_user.admin? %>
+          <% if current_user == review.user || !current_user.admin? %>
             <div class="button small"><%= link_to "Edit Review", edit_bar_review_path(@bar, review) %></div>
           <% end %>
         <% end %>
