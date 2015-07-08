@@ -8,4 +8,6 @@ class Review < ActiveRecord::Base
   validates :body, presence: true
   validates :bar, presence: true
   validates :user, presence: true
+
+  paginates_per 5
 end

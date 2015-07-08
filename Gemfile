@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 # Use postgresql as the database for Active Record
@@ -33,6 +31,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Icons
 gem "font-awesome-rails"
+
+# Paginaion
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

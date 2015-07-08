@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   def index
     review = Review.find(params[:review_id])
-    total = review.votes.map {|v| v[:value]}
+    total = review.votes.map { |v| v[:value] }
     @score = total.reduce(:+)
     respond_to do |format|
       format.json { render json: @score }
@@ -30,8 +30,7 @@ class VotesController < ApplicationController
   protected
 
   def vote_params
-    params
-    .permit(:value)
-    .merge(review_id: params[:review_id])
+    params.permit(:value).merge(
+      review_id: params[:review_id])
   end
 end

@@ -25,7 +25,7 @@ So I can show how I feel
     click_link("Upvote Review #{review.id}")
 
     expect(page).to have_content(review.bar.name)
-    expect(page.find("#votes-review-#{review.id}")).to have_content("1") 
+    expect(page.find("#votes-review-#{review.id}")).to have_content("1")
   end
 
   scenario 'user can undo upvote', js: true do
@@ -99,19 +99,8 @@ So I can show how I feel
 
     visit bar_path(upvote.review.bar)
 
-    expect(page.find("#review-#{upvote.review.id}")
-               .find(".votes"))
-               .to have_content(3)
+    expect(page.find("#review-#{upvote.review.id}").find(
+      ".votes")).to have_content(3)
   end
 
 end
-
-
-
-
-
-
-
-
-
-
