@@ -128,6 +128,6 @@ Bar.create!(name: "Scampo",
             outdoor_seating: true,
             pet_friendly: false)
 
-Review.create!(title: "",
-              rating:
-              body: "")
+# Review.create!(title: "",
+#               rating:
+#               body: "")

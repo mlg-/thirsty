@@ -13,9 +13,8 @@ feature 'administrator can delete review', %{
 
   scenario 'admin can delete a review' do
     bar = FactoryGirl.create(:bar)
-    user = FactoryGirl.create(:user)
     admin = FactoryGirl.create(:admin)
-    FactoryGirl.create(:review, bar: bar, user: user)
+    FactoryGirl.create(:review, bar: bar)
 
     sign_in_as(admin)
     visit root_path
