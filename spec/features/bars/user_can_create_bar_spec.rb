@@ -40,9 +40,11 @@ feature 'user can create a new bar', %{
     fill_in "Url", with: bar.url
     fill_in "Photo url", with: bar.photo_url
     fill_in "Seating capacity", with: bar.seating_capacity
-    select "Yes", from: "Food"
-    select "No", from: "Outdoor seating"
-    select "Yes", from: "Pet friendly"
+
+    choose("bar_food_true")
+    choose("bar_outdoor_seating_true")
+    choose("bar_pet_friendly_true")
+
     click_button("Submit")
 
     expect(page).to have_content("Thirsty?")
@@ -67,9 +69,11 @@ feature 'user can create a new bar', %{
     fill_in "Url", with: bar.url
     fill_in "Photo url", with: bar.photo_url
     fill_in "Seating capacity", with: bar.seating_capacity
-    select "Yes", from: "Food"
-    select "No", from: "Outdoor seating"
-    select "Yes", from: "Pet friendly"
+
+    choose("bar_food_true")
+    choose("bar_outdoor_seating_true")
+    choose("bar_pet_friendly_true")
+
     click_button("Submit")
 
     expect(page).to have_content("Name can't be blank")
@@ -91,9 +95,11 @@ feature 'user can create a new bar', %{
     fill_in "Url", with: bar.url
     fill_in "Photo url", with: bar.photo_url
     fill_in "Seating capacity", with: bar.seating_capacity
-    select "Yes", from: "Food"
-    select "No", from: "Outdoor seating"
-    select "Yes", from: "Pet friendly"
+
+    choose("bar_food_true")
+    choose("bar_outdoor_seating_true")
+    choose("bar_pet_friendly_true")
+
     click_button("Submit")
 
     expect(page).to have_content("Address can't be blank")
@@ -120,9 +126,11 @@ feature 'user can create a new bar', %{
     fill_in "Url", with: bar.url
     fill_in "Photo url", with: bar.photo_url
     fill_in "Seating capacity", with: bar.seating_capacity
-    select "Yes", from: "Food"
-    select "No", from: "Outdoor seating"
-    select "Yes", from: "Pet friendly"
+
+    choose("bar_food_true")
+    choose("bar_outdoor_seating_true")
+    choose("bar_pet_friendly_true")
+
     click_button("Submit")
 
     expect(page).to have_content("Bar already exists")
