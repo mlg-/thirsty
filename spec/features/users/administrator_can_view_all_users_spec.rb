@@ -11,7 +11,7 @@ feature 'administrator can view a list of all users', %{
 
   scenario 'administrator can navigate to a users page listing all users' do
     test_users = FactoryGirl.create_list(:user, 3)
-    admin = FactoryGirl.create(:admin)
+    admin = FactoryGirl.create(:user, admin: true)
 
     sign_in_as(admin)
     visit root_path

@@ -14,7 +14,7 @@ feature 'administrator user can delete a bar', %{
   } do
 
   scenario 'administrator can delete a bar' do
-    admin = FactoryGirl.create(:admin)
+    admin = FactoryGirl.create(:user, admin: true)
     bar = FactoryGirl.create(:bar)
 
     sign_in_as(admin)
@@ -38,7 +38,7 @@ feature 'administrator user can delete a bar', %{
   end
 
   scenario 'bar is no longer in database' do
-    admin = FactoryGirl.create(:admin)
+    admin = FactoryGirl.create(:user, admin: true)
     bar = FactoryGirl.create(:bar)
 
     sign_in_as(admin)
@@ -51,12 +51,12 @@ feature 'administrator user can delete a bar', %{
   end
 
   scenario 'bar details page no longer exists' do
-    admin = FactoryGirl.create(:admin)
+    admin = FactoryGirl.create(:user, admin: true)
     bar = FactoryGirl.create(:bar)
 
     sign_in_as(admin)
 
-    visit bar_path(bar.id)
+    visit bar_path(bar)
 
     click_link("Delete")
 
@@ -66,13 +66,13 @@ feature 'administrator user can delete a bar', %{
   end
 
   scenario 'reviews of this bar no longer exist' do
-    admin = FactoryGirl.create(:admin)
+    admin = FactoryGirl.create(:user, admin: true)
     bar = FactoryGirl.create(:bar)
-    review = FactoryGirl.create(:review, bar: bar)
+    review = FactoryGirl.create(:review)
 
     sign_in_as(admin)
 
-    visit bar_path(bar)
+    visit bar_path(review.bar)
 
     click_link("Delete", match: :first)
 

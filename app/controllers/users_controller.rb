@@ -3,15 +3,16 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all.order(created_at: :desc)
-    @user = current_user
   end
 
   def destroy
     if current_user.admin?
-      @user_nonadmin = User.find(params[:id])
-      @user_nonadmin.destroy
+      @user = User.find(params[:id]).destroy
       flash[:notice] = 'The User Has Been Deleted'
       redirect_to users_path
+    else
+      flash[:notice] = @user.errors.full_messages.join(" ")
+      redirect to bars_path
     end
   end
 
