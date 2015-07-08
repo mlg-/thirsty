@@ -17,7 +17,7 @@
       <% end %>
 
       <div class="field">
-        <% if current_user.profile_photo %>
+        <% unless current_user.profile_photo.nil? %>
           <%= image_tag(current_user.profile_photo) %>
         <p>Your current profile photo.</p>
         <% end %>

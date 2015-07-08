@@ -107,20 +107,25 @@ feature 'user updates profile', %{
   end
 
   scenario 'user can update their profile photo' do
-    user = FactoryGirl.create(:user)
+    visit new_user_registration_path
 
-    sign_in_as(user)
+    fill_in 'Email', with: 'john@example.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    attach_file("Profile Photo",
+                "#{Rails.root}/spec/support/images/headshot.jpg")
 
-    visit edit_user_registration_path(user)
+    click_button 'Sign up'
 
-    attach_file("Change Your Profile Photo", "#{Rails.root}/spec/support/images/headshot.jpg")
-    fill_in("Current password", with: user.password)
-    save_and_open_page
+    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Sign Out')
 
+    visit edit_user_registration_path
+    attach_file("Profile Photo",
+                "#{Rails.root}/spec/support/images/furiosa.jpg")
+    fill_in("Current password", with: "password")
     click_button("Update")
 
-    expect(page).to have_content("Your account has been updated successfully.")
-    expect(page).to have_content('Sign Out')
-    expect(user.profile_photo.file.filename).to eq("headshot.jpg")
+    expect(User.first.profile_photo.file.filename).to eq("furiosa.jpg")
   end
 end
