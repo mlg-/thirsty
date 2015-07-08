@@ -113,7 +113,7 @@ feature 'user updates profile', %{
     fill_in 'Password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     attach_file("Profile Photo",
-                "#{Rails.root}/spec/support/images/headshot.jpg")
+               "#{Rails.root}/spec/support/images/headshot.jpg")
 
     click_button 'Sign up'
 
@@ -122,7 +122,7 @@ feature 'user updates profile', %{
 
     visit edit_user_registration_path
     attach_file("Profile Photo",
-                "#{Rails.root}/spec/support/images/furiosa.jpg")
+               "#{Rails.root}/spec/support/images/furiosa.jpg")
     fill_in("Current password", with: "password")
     click_button("Update")
 
