@@ -6,11 +6,10 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'shoulda-matchers'
+require 'capybara/rspec'
 require File.join(File.dirname(__FILE__), 'support/valid_attribute')
 require File.join(File.dirname(__FILE__), 'support/factory_girl')
-require 'capybara/rspec'
 require File.join(File.dirname(__FILE__), 'support/user_sign_in_helper')
-require 'capybara/poltergeist'
 Capybara.javascript_driver = :selenium
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
