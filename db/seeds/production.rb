@@ -138,11 +138,11 @@ Bar.create!(name: "Scampo",
             pet_friendly: false
             )
 
-Review.create!(title: "",
+Review.create!(title: "YUM!",
               rating: 3,
-              body: "",
-              user_id: "",
-              bar_id: ""
+              body: "Fantastic mozzarella bar, and everything from appetizer to dessert is outstanding.",
+              user_id: 1,
+              bar_id: 10
               )
 
 User.create!(email: "joelauncher@mailinator.com",
