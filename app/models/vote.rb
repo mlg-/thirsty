@@ -6,4 +6,7 @@ class Vote < ActiveRecord::Base
                     inclusion: { in: [-1, 0, 1] }
   validates :review, presence: true
   validates :user, presence: true
+
+  def total_score
+  end
 end
