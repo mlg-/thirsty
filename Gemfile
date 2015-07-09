@@ -71,4 +71,5 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails'
 gem 'pry-rails', group: [:development, :test]
+gem "dotenv-rails"
 gem 'rails_12factor', group: :production

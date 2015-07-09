@@ -37,10 +37,10 @@ Acceptance Criteria
   scenario 'an admin can delete any review' do
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
-    user2 = FactoryGirl.create(:admin)
+    admin = FactoryGirl.create(:user, admin: true)
     FactoryGirl.create(:review, bar: bar, user: user)
 
-    sign_in_as (user2)
+    sign_in_as (admin)
     visit root_path
     click_link (bar.name)
 
