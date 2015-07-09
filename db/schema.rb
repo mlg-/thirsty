@@ -68,8 +68,6 @@ ActiveRecord::Schema.define(version: 20150708153207) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-<<<<<<< HEAD
-=======
   create_table "votes", force: :cascade do |t|
     t.integer  "value",      null: false
     t.integer  "review_id",  null: false
@@ -78,5 +76,4 @@ ActiveRecord::Schema.define(version: 20150708153207) do
     t.datetime "updated_at", null: false
   end
 
->>>>>>> d33bb214542ba05f88c1ddd493097ab67ff5ec8a
 end
