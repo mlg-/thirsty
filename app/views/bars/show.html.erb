@@ -1,4 +1,3 @@
-
 <div class="title">
   <div class="row">
     <div class="small-2 large-4 columns">
@@ -21,13 +20,17 @@
       Outdoor Seating: <%= @bar.outdoor_seating %><br>
 
       Pet Friendly: <%= @bar.pet_friendly %></p>
-
-      <p><%= link_to "Edit #{@bar.name}", edit_bar_path(@bar) %></p>
-      <% if user_signed_in? && current_user.admin? %>
-        <p><%= link_to "Delete #{@bar.name}", bar_path(@bar), method: :delete, data: { confirm: "You sure?" }%></p>
-      <% end %>
-      <h4> <%= link_to "Add Review", new_bar_review_path(@bar) %> </h4>
-
+      <div class="button small">
+        <%= link_to "Edit #{@bar.name}", edit_bar_path(@bar) %>
+      </div>
+        <% if user_signed_in? && current_user.admin? %>
+        <div class="button small">
+          <%= link_to "Delete #{@bar.name}", bar_path(@bar), method: :delete %>
+        </div>
+        <% end %>
+      <div class="button small">
+        <%= link_to "Add Review", new_bar_review_path(@bar) %>
+      </div>
     </div>
 
     <div class="small-6 large-4 columns">
@@ -37,14 +40,41 @@
     </div>
   </div>
 
-<div>
-  <% @reviews.order(created_at: :desc).each do |review| %>
-    <div><%= review.title + " " + review.rating.to_s + " " + review.body %></div>
-    <% if user_signed_in? && (current_user == review.user || current_user.admin?) %>
-      <div><h4><%= link_to "Delete Review", bar_review_path(@bar, review), method: :delete, data: { confirm: "You sure?" }%></h4></div>
-      <% if current_user == review.user && !current_user.admin? %>
-        <div><h4><%= link_to "Edit Review", edit_bar_review_path(@bar, review) %></h4></div>
-      <% end %>
-    <% end %>
-  <% end %>
+<% @reviews.order(created_at: :desc).each do |review| %>
+  <div class="row">
+    <div id="review-<%= review.id %>" class="row review-container">
+      <div class="small-3 columns">
+        <%= link_to "<i id=\"upvote-review-#{review.id}\" class=\"fa fa-arrow-up\"><span class=\"sr-only\">Upvote Review #{review.id}</span></i>".html_safe, review_votes_path(review, value: 1), method: :post, class: "upvote", id: "upvote-#{review.id}" %>
+        <% if review.votes.nil? %>
+          <div class="votes" id="votes-review-<%= review.id %>">0</div>
+        <% else %>
+          <% total = review.votes.map {|v| v[:value]} %>
+          <div class="votes" id="votes-review-<%= review.id %>"><%= total.reduce(:+) %></div>
+        <% end %>
+        <%= link_to "<i id=\"downvote-review-#{review.id}\" class=\"fa fa-arrow-down\"><span class=\"sr-only\">Downvote Review #{review.id}</span></i>".html_safe, review_votes_path(review, value: -1), method: :post, class: "downvote", id: "downvote-#{review.id}" %>
+      </div>
+
+
+      <div class="small-9 columns">
+        <div class="review-user-details">
+          <% unless review.user.profile_photo.nil? %>
+            <%= image_tag(review.user.profile_photo, class: "thumbnail") %>
+          <% end %>
+          <h3><%= review.user.email %> says...</h3>
+        </div>
+        <h3><%= review.title %></h3>
+        <h4><%= review.rating %>/5</h4>
+        <p><%= review.body %></p>
+        <% if user_signed_in? && (current_user == review.user || current_user.admin?) %>
+          <div class="button small"><%= link_to "Delete Review", bar_review_path(@bar, review), method: :delete %></div>
+          <% if current_user == review.user || !current_user.admin? %>
+            <div class="button small"><%= link_to "Edit Review", edit_bar_review_path(@bar, review) %></div>
+          <% end %>
+        <% end %>
+      </div><!-- end review small-9-->
+    </div>
+  </div>
+<% end %> <!-- end review.each loop -->
+<div class="title">
+  <%= paginate @reviews %>
 </div>

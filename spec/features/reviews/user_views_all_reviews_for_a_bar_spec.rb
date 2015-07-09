@@ -36,4 +36,38 @@ feature 'user can view all reviews for a bar', %{
     expect(page.body.index(review2.title)).to be < page.body.index(
       review1.title)
   end
+
+  scenario 'user sees 5 reviews per page' do
+    test_bar = FactoryGirl.create(:bar)
+    first_review = FactoryGirl.create(:review, bar: test_bar)
+    test_reviews = FactoryGirl.create_list(:review, 5, bar: test_bar)
+
+    visit '/'
+
+    click_link (test_bar.name)
+
+    test_reviews.each do |review|
+      expect(page).to have_content(review.title)
+    end
+
+    expect(page).to_not have_content(first_review.title)
+  end
+
+  scenario 'user sees 6th review on second page' do
+    test_bar = FactoryGirl.create(:bar)
+    first_review = FactoryGirl.create(:review, bar: test_bar)
+    test_reviews = FactoryGirl.create_list(:review, 5, bar: test_bar)
+
+    visit '/'
+
+    click_link (test_bar.name)
+
+    click_link("Next")
+
+    test_reviews.each do |review|
+      expect(page).to_not have_content(review.title)
+    end
+
+    expect(page).to have_content(first_review.title)
+  end
 end

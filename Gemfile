@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby "2.2.1"
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 # Use postgresql as the database for Active Record
@@ -31,6 +29,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Icons
+gem 'font-awesome-rails'
+
+# Paginaion
+gem 'kaminari'
+
+# Carrierwave integration
+gem 'fog'
+gem 'carrierwave'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -40,10 +49,15 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # ENV file support
+  gem 'dotenv-rails'
 end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'poltergeist'
 end
 
 
@@ -56,3 +70,4 @@ gem 'shoulda-matchers', group: [:development, :test], require: false
 gem 'devise'
 gem 'foundation-rails'
 gem 'pry-rails', group: [:development, :test]
+gem "dotenv-rails"

@@ -1,8 +1,9 @@
 <div class="row">
   <div class="large-8 columns">
-      <div class="title">
-        <h1 class="text-center">Boston Bars</h1>
-      </div>
+    <div class="title">
+      <h1 class="text-center">Thirsty?</h1>
+      <h3 class="text-center">Check out these awesome bars!</h3>
+    </div>
     <ul>
       <% @bars.each do |bar| %>
       <div class="bar_row">
@@ -10,12 +11,23 @@
       </div>
       <% end %>
     </ul>
+      <div class="title">
+       <div class="text-center">
+         <%= paginate @bars %>
+       </div>
+    </div>
   </div>
 
+
   <div class="large-4 columns">
-    <div class="icon">
-    <img alt="Icon" src="/assets/icon.png" />
-  </div>
-      <a href="/bars/new" class="button radius">Add New Bar</a>
+    <div>
+      <%= form_tag bars_path, method: :get do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", name: nil %>
+      <% end %>
+    </div>
+    <div>
+        <a href="/bars/new" class="button radius">Add New Bar</a>
+    </div>
   </div>
 </div>

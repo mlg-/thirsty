@@ -50,19 +50,4 @@ feature 'administrator user can delete a bar', %{
 
     expect(page).to_not have_content(bar.name)
   end
-
-  scenario 'reviews of this bar no longer exist' do
-    admin = FactoryGirl.create(:user, admin: true)
-    review = FactoryGirl.create(:review)
-    bar = FactoryGirl.create(:bar)
-
-    sign_in_as(admin)
-
-    visit bar_path(review.bar)
-
-    click_link("Delete", match: :last)
-    visit root_path
-
-    expect(page).to_not have_content(bar.name)
-  end
 end
