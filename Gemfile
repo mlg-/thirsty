@@ -58,6 +58,7 @@ group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem "codeclimate-test-reporter", require: nil
 end
 
 
@@ -71,3 +72,4 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'pry-rails', group: [:development, :test]
 gem "dotenv-rails"
+gem 'rails_12factor', group: :production

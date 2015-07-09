@@ -14,6 +14,7 @@
  *= require_self
  *= require foundation_and_overrides
  *= require font-awesome
+ *= depend_on_asset "background.jpg"
 */
 
 h1 {
@@ -28,7 +29,7 @@ h4 {
   color: #ffffff
 }
 body {
-  background: url("background.jpg");
+  background-image: url("<%= asset_path('background.jpg') %>");
   background-size: cover;
 }
 
@@ -114,4 +115,22 @@ a.upvote, a.downvote {
 
 .review-user-details img{
   padding: 10px;
+}
+
+#bar-search {
+  margin: 10px;
+}
+
+.sidebar input, .sidebar button {
+  margin: 20px auto;
+  display: block;
+}
+
+#bar-search form {
+  background: none;
+  padding: 10px;
+}
+
+.sidebar {
+  background-color: rgba(0,0,0,0.5);
 }

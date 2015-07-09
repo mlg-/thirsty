@@ -7,7 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'shoulda-matchers'
 require File.join(File.dirname(__FILE__), 'support/valid_attribute')
-require File.join(File.dirname(__FILE__), 'support/factory_girl')
+Dir[Rails.root.join('spec/support/factories/*.rb')].each { |f| require f }
 require 'capybara/rspec'
 require File.join(File.dirname(__FILE__), 'support/user_sign_in_helper')
 require 'capybara/poltergeist'
