@@ -1,3 +1,53 @@
+User.create!(email: "steve-o@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "tracy0279@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "sirbeersalot@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "saraholdren@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "jonsey@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "billiamwiggins@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "josephinesera@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "mikewalsh@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "whiskeylover@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "barfly@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: true
+)
+
 Bar.create!(name: "Beacon Hill Pub",
             address: "149 Charles St",
             city: "Boston",
@@ -154,6 +204,8 @@ Bar.create!(name: "Scampo",
             outdoor_seating: true,
             pet_friendly: false
             )
+
+
 
 Review.create!(title: "Fix the basketball hoop!",
                rating: 3,
@@ -379,54 +431,4 @@ Review.create!(title: "YUM!",
                on the food but they did have a gluten free menu",
                user_id: 10,
                bar_id: 10
-)
-
-User.create!(email: "steve-o@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "tracy0279@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "sirbeersalot@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "saraholdren@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "jonsey@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "billiamwiggins@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "josephinesera@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "mikewalsh@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "whiskeylover@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "barfly@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: true
 )
