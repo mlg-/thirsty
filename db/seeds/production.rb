@@ -9,7 +9,8 @@ Bar.create!(name: "Beacon Hill Pub",
             seating_capacity: 268,
             food: false,
             outdoor_seating: false,
-            pet_friendly: false)
+            pet_friendly: false
+            )
 
 Bar.create!(name: "Shojo",
             address: "9A Tyler St.",
@@ -19,10 +20,11 @@ Bar.create!(name: "Shojo",
             description: "Hip Asian fusion cuisine with unique drinks.",
             url: "http://www.shojoboston.com/",
             photo_url: "http://www.yelp.com/biz_photos/beacon-hill-pub-boston?",
-            seating_capacity:
+            seating_capacity: 80,
             food: true,
             outdoor_seating: false,
-            pet_friendly: false)
+            pet_friendly: false
+            )
 
 Bar.create!(name: "Frost Ice Loft",
             address: "Faneuil Hall Market Pl, 200 State St N Bldg 3rd Fl",
@@ -35,7 +37,8 @@ Bar.create!(name: "Frost Ice Loft",
             seating_capacity: 150,
             food: false,
             outdoor_seating: false,
-            pet_friendly: false)
+            pet_friendly: false
+            )
 
 Bar.create!(name: "21st Amendment",
             address: "150 Bowdoin Sq.",
@@ -48,7 +51,8 @@ Bar.create!(name: "21st Amendment",
             seating_capacity: 96,
             food: true,
             outdoor_seating: false,
-            pet_friendly: false)
+            pet_friendly: false
+            )
 
 Bar.create!(name: "The Hill Tavern",
             address: "228 Cambridge St.",
@@ -61,7 +65,8 @@ Bar.create!(name: "The Hill Tavern",
             seating_capacity: 150,
             food: true,
             outdoor_seating: true,
-            pet_friendly: false)
+            pet_friendly: false
+            )
 
 Bar.create!(name: "Estragon",
             address: "700 Harrison Ave.",
@@ -74,7 +79,8 @@ Bar.create!(name: "Estragon",
             seating_capacity: 106,
             food: true,
             outdoor_seating: true,
-            pet_friendly: true)
+            pet_friendly: true
+            )
 
 Bar.create!(name: "Corner Cafe",
             address: "87 Prince St.",
@@ -82,12 +88,13 @@ Bar.create!(name: "Corner Cafe",
             state: "Massachusetts",
             zip: "02113",
             description: "Late-night neighborhood hangout offering booze, casual grub & sports TVs in a down-to-earth setting.",
-            url:
-            photo_url: "www.yelp.com/biz_photos/corner-cafe-boston?",
+            url: "None",
+            photo_url: "www.yelp.com/biz_photos/corner-cafe-boston?/",
             seating_capacity: 32,
             food: false,
             outdoor_seating: false,
-            pet_friendly: false)
+            pet_friendly: false
+            )
 
 Bar.create!(name: "75 Chestnut",
             address: "75 Chestnut St.",
@@ -95,12 +102,13 @@ Bar.create!(name: "75 Chestnut",
             state: "Massachusetts",
             zip: "02108",
             description: "Beacon Hill haunt serving a variety of simple American dishes in quaint quarters with a rustic bar.",
-            url: "http://75chestnut.com/"
+            url: "http://75chestnut.com/",
             photo_url: "http://75chestnut.com/gallery/",
             seating_capacity: 85,
             food: true,
             outdoor_seating: false,
-            pet_friendly: false)
+            pet_friendly: false
+            )
 
 Bar.create!(name: "JJ Foley's Bar & Grille",
             address: "21 Kingston St.",
@@ -108,12 +116,13 @@ Bar.create!(name: "JJ Foley's Bar & Grille",
             state: "Massachusetts",
             zip: "02111",
             description: "Neighborhood pub founded in 1909 offering Irish-American eats & diversions such as TVs & darts.",
-            url: "https://www.facebook.com/pages/JJ-Foleys/43154335890"
+            url: "https://www.facebook.com/pages/JJ-Foleys/43154335890",
             photo_url: "www.yelp.com/biz_photos/jj-foleys-bar-and-grille-boston?",
             seating_capacity: 219,
             food: true,
             outdoor_seating: false,
-            pet_friendly: false)
+            pet_friendly: false
+            )
 
 Bar.create!(name: "Scampo",
             address: "The Liberty Hotel, 215 Charles St.",
@@ -121,13 +130,22 @@ Bar.create!(name: "Scampo",
             state: "Massachusetts",
             zip: "02114",
             description: "Liberty Hotel's chic destination (& former jailhouse) for Italian fare & mozzarella bar.",
-            url: "http://scampoboston.com/"
+            url: "http://scampoboston.com/",
             photo_url: "http://scampoboston.com/gallery/",
             seating_capacity: 392,
             food: true,
             outdoor_seating: true,
-            pet_friendly: false)
+            pet_friendly: false
+            )
 
 Review.create!(title: "",
-              rating:
-              body: "")
+              rating: 3,
+              body: "",
+              user_id: "",
+              bar_id: ""
+              )
+
+User.create!(email: "joelauncher@mailinator.com",
+            password: "password",
+            admin: false
+)
