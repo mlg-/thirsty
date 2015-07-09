@@ -267,18 +267,18 @@ Review.create!(title: "Get better help!",
 )
 
 Review.create!(title: "Delicioso!",
-                rating: 5,
-                body: "We 'stumbled' upon this place seeing that getting into
-                toro or barcelona wine bar was near impossible.\n
-                A wee bit out of the way, at least I thought so BUT well worth
-                the visit. The place isn't overcrowded - food, drinks and
-                service are great. You are not rushed, portions are generous
-                and the wait staff are most helpful with suggestions. So A-plus
-                for this find and well worth a return trip.\n
-                Drinks are great and they will pretty much offer suggestions or
-                get you something you fancy.",
-                user_id: 6,
-                bar_id: 6
+               rating: 5,
+               body: "We 'stumbled' upon this place seeing that getting into
+               toro or barcelona wine bar was near impossible.\n
+               A wee bit out of the way, at least I thought so BUT well worth
+               the visit. The place isn't overcrowded - food, drinks and
+               service are great. You are not rushed, portions are generous
+               and the wait staff are most helpful with suggestions. So A-plus
+               for this find and well worth a return trip.\n
+               Drinks are great and they will pretty much offer suggestions or
+               get you something you fancy.",
+               user_id: 6,
+               bar_id: 6
 )
 
 Review.create!(title: "Small but tasty sangria",
