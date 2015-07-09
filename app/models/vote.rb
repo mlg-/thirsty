@@ -10,7 +10,7 @@ class Vote < ActiveRecord::Base
   class << self
     def total_score(votes_array)
       total = votes_array.map { |v| v[:value] }
-      score = total.reduce(:+)
+      total.reduce(:+)
     end
   end
 end
