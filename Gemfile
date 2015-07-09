@@ -58,6 +58,7 @@ group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem "codeclimate-test-reporter", require: nil
 end
 
 

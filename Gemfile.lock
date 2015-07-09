@@ -57,6 +57,8 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
     cliver (0.3.2)
+    codeclimate-test-reporter (0.4.7)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -362,6 +364,7 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave
+  codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   coveralls
   database_cleaner
@@ -388,6 +391,3 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   valid_attribute
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.10.5

@@ -115,3 +115,21 @@ a.upvote, a.downvote {
 .review-user-details img{
   padding: 10px;
 }
+
+#bar-search {
+  margin: 10px;
+}
+
+.sidebar input, .sidebar button {
+  margin: 20px auto;
+  display: block;
+}
+
+#bar-search form {
+  background: none;
+  padding: 10px;
+}
+
+.sidebar {
+  background-color: rgba(0,0,0,0.5);
+}
