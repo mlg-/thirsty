@@ -283,75 +283,75 @@ Review.create!(title: "Small but tasty sangria",
 )
 
 Review.create!(title: "RAY IS MAGICIAN",
-                      rating: 5,
-                      body: "The Corner Cafe is a great neighborhood dive bar.
-                      I have now been dropping in to this establishment for over two
-                      years. Whether its a quick beer before a Celtics game or a night
-                      propping up the bar, this is a great relaxed little place. Ray the
-                       bartender has mastered the art of making a perfect martini. THE
-                       MAN IS A MAGICIAN!",
-                      user_id: 7,
-                      bar_id: 7
+               rating: 5,
+               body: "The Corner Cafe is a great neighborhood dive bar.
+               I have now been dropping in to this establishment for over two
+               years. Whether its a quick beer before a Celtics game or a night
+               propping up the bar, this is a great relaxed little place. Ray the
+                bartender has mastered the art of making a perfect martini. THE
+                MAN IS A MAGICIAN!",
+               user_id: 7,
+               bar_id: 7
 )
 
 Review.create!(title: "Great dive",
-                     rating: 4,
-                     body: "A dive. Excellent! Drink beer and don't impress anyone.
-                     And if the bartender doesn't like you, it's probably because
-                     you're a jerk!",
-                     user_id: 8,
-                     bar_id: 7
+               rating: 4,
+               body: "A dive. Excellent! Drink beer and don't impress anyone.
+               And if the bartender doesn't like you, it's probably because
+               you're a jerk!",
+               user_id: 8,
+               bar_id: 7
 )
 
 Review.create!(title: "Pricey",
-                    rating: 4,
-                    body: "They're more of a 3.5 borderline 4.\n
-                    During our visit to Boston we stopped here for some brunch before
-                    heading out. I didn't see reviews before hand and just went with
-                    the recommendation that this place is good.\n
-                    While, my food was definitely delicious the cocktails were only
-                    decent. I mean at $13 a cocktail, come correct. GIVE ME A DARN
-                    GREAT COCKTAIL. Sheesh.",
-                    user_id: 8,
-                    bar_id: 8
+               rating: 4,
+               body: "They're more of a 3.5 borderline 4.\n
+               During our visit to Boston we stopped here for some brunch before
+               heading out. I didn't see reviews before hand and just went with
+               the recommendation that this place is good.\n
+               While, my food was definitely delicious the cocktails were only
+               decent. I mean at $13 a cocktail, come correct. GIVE ME A DARN
+               GREAT COCKTAIL. Sheesh.",
+               user_id: 8,
+               bar_id: 8
 )
 
 Review.create!(title: "Cocktail costs what?",
-                   rating: 3,
-                   body: "We stopped in after a 5 hour car ride at 9:30PM on a Friday
-                    and were seated immediately. We were happy to find that it was
-                    Boston's restaurant week and chose to dine from the select menu.
-                    He got a watermelon mojito and I got a Boston sunset which was
-                    delectable after being(sober) in the car for so long.
-                    Beware-I didn't see prices on the menu and the drinks are about
-                    $15 each. ",
-                   user_id: 9,
-                   bar_id: 8
+               rating: 3,
+               body: "We stopped in after a 5 hour car ride at 9:30PM on a Friday
+               and were seated immediately. We were happy to find that it was
+               Boston's restaurant week and chose to dine from the select menu.
+               He got a watermelon mojito and I got a Boston sunset which was
+               delectable after being(sober) in the car for so long.
+               Beware-I didn't see prices on the menu and the drinks are about
+               $15 each. ",
+               user_id: 9,
+               bar_id: 8
 )
 
 Review.create!(title: "Feels like home",
-                  rating: 3,
-                  body: "So happy I came. Great atmosphere, great bartenders, great
-                  juke box. Made this northwesterner feel right at home.",
-                  user_id: 9,
-                  bar_id: 9
+               rating: 3,
+               body: "So happy I came. Great atmosphere, great bartenders, great
+               juke box. Made this northwesterner feel right at home.",
+               user_id: 9,
+               bar_id: 9
 )
 
 Review.create!(title: "Feels like home",
-                 rating: 4,
-                 body: "Great lively atmosphere with an internet jukebox and lots
-                 of booths. Good prompt and friendly service and good draft beer
-                 selection. A great local pub!",
-                 user_id: 10,
-                 bar_id: 9
+               rating: 4,
+               body: "Great lively atmosphere with an internet jukebox and lots
+               of booths. Good prompt and friendly service and good draft beer
+               selection. A great local pub!",
+               user_id: 10,
+               bar_id: 9
 )
 
 Review.create!(title: "YUM!",
-                rating: 3,
-                body: "Fantastic mozzarella bar, and everything from appetizer to
-                dessert is outstanding.",
-                user_id: 1,
-                bar_id: 10
+               rating: 3,
+               body: "Fantastic mozzarella bar, and everything from appetizer to
+               dessert is outstanding.",
+               user_id: 1,
+               bar_id: 10
 )
 
 Review.create!(title: "YUM!",
