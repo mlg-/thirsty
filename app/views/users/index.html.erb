@@ -1,0 +1,7 @@
+<h1>User List</h1>
+<% @users.all.each do |user| %>
+  <%= user.email %>
+  <% if user_signed_in? && current_user.admin? %>
+    <p><%= link_to "Delete User", admin_destroy_user_path(user.id), class: "user_#{user.id}", method: :delete, data: { confirm: "You sure?" } %></p>
+  <% end %>
+<% end %>
