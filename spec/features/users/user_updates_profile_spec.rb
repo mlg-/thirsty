@@ -105,4 +105,27 @@ feature 'user updates profile', %{
     sign_in_as(user)
     expect(page).to have_content("Sign Out")
   end
+
+  scenario 'user can update their profile photo' do
+    visit new_user_registration_path
+
+    fill_in 'Email', with: 'john@example.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    attach_file("Profile Photo",
+               "#{Rails.root}/spec/support/images/headshot.jpg")
+
+    click_button 'Sign up'
+
+    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Sign Out')
+
+    visit edit_user_registration_path
+    attach_file("Profile Photo",
+               "#{Rails.root}/spec/support/images/furiosa.jpg")
+    fill_in("Current password", with: "password")
+    click_button("Update")
+
+    expect(User.first.profile_photo.file.filename).to eq("furiosa.jpg")
+  end
 end

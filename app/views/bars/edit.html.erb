@@ -1,36 +1,70 @@
-<h1>Edit <%= @bar.name %></h1>
+<div class="form">
+  <div class="large-6 columns">
 
-<p><%= @bar.address %></p>
+    <div class="title">
+      <h1>Edit <%= @bar.name %></h1>
+      <p><%= @bar.address %><br>
+      <%= "#{@bar.city}, #{@bar.state} #{@bar.zip}" %></p>
+    </div>
 
-<p><%= @bar.city %></p>
+    <%= form_for @bar do |f| %>
 
-<p><%= @bar.state %></p>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
 
-<p><%= @bar.zip %></p>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
 
-<%= form_for @bar do |f| %>
+      <%= f.label :photo_url %>
+      <%= f.text_field :photo_url %>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+      <div class="row">
+        <div class="large-3 columns">
+            <%= f.label :seating_capacity %>
+            <%= f.text_field :seating_capacity %>
+        </div>
 
-  <%= f.label :url %>
-  <%= f.text_field :url %>
+        <div class="large-3 columns">
+            <%= f.label :food, "Food" %>
 
-  <%= f.label :photo_url %>
-  <%= f.text_field :photo_url %>
+            <%= f.radio_button :food, true %>
+            <%= f.label :food, "Yes", value: "true"  %>
 
-  <%= f.label :seating_capacity %>
-  <%= f.text_field :seating_capacity %>
+            <%= f.radio_button :food, false, checked: true %>
+            <%= f.label :food, "No", value: "false" %>
+        </div>
 
-  <%= f.label :food %>
-  <%= f.select :food, [["Yes", true], ["No", false]] %>
+        <div class="large-3 columns">
+          <%= f.label :outdoor_seating, "Outdoor Seating" %>
 
-  <%= f.label :outdoor_seating %>
-  <%= f.select :outdoor_seating, [["Yes", true], ["No", false]] %>
+          <%= f.radio_button :outdoor_seating, true %>
+          <%= f.label :outdoor_seating, "Yes", value: "true"  %>
 
-  <%= f.label :pet_friendly %>
-  <%= f.select :pet_friendly, [["Yes", true], ["No", false]] %>
+          <%= f.radio_button :outdoor_seating, false, checked: true %>
+          <%= f.label :outdoor_seating, "No", value: "false" %>
+        </div>
 
-<%= f.submit "Submit Changes" %>
+        <div class="large-3 columns">
+          <div class="row collapse">
+            <%= f.label :pet_friendly, "Pet Friendly" %>
 
-<% end %>
+            <%= f.radio_button :pet_friendly, true %>
+            <%= f.label :pet_friendly, "Yes", value: "true"  %>
+
+            <%= f.radio_button :pet_friendly, false, checked: true %>
+            <%= f.label :pet_friendly, "No", value: "false" %>
+            </div>
+          </div>
+      </div>
+
+
+    <div class="row">
+      <div class="large-3 columns">
+        <div class="submit_button">
+          <%= f.submit "Submit Changes", class: "button radius" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

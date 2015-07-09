@@ -13,5 +13,105 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
+ *= require font-awesome
+*/
 
- */
+h1 {
+  color: white
+}
+
+h3 {
+  color: #ffd3aa
+}
+
+h4 {
+  color: #ffffff
+}
+body {
+  background: url("background.jpg");
+  background-size: cover;
+}
+
+.title {
+  background:rgba(0,0,0,0.5);
+  padding: 10px 20px 10px 20px;
+}
+
+.bar_row {
+  background:rgba(0,0,0,0.5);
+  margin: 3px;
+  padding: 10px;
+}
+
+.form {
+  background:rgba(0,0,0,0.5);
+}
+
+.submit_button{
+  margin-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+}
+
+a {
+  color: white;
+}
+
+form {
+  background:rgba(0,0,0,0.5);
+  padding: 0px 30px;
+  color: white;
+}
+
+.bar_description {
+  padding-top: 130px;
+}
+
+.gold {
+  color: #ffd3aa;
+  text-shadow: none;
+}
+
+a.upvote, a.downvote {
+  font-size: 1.5em;
+  text-shadow: 1px 1px 1px #fff;
+  color: #4f0f0f;
+}
+
+.votes {
+  font-size: 1.3em;
+  margin-left: 6px;
+}
+
+.review-container {
+  border-bottom: 1px solid ;
+  padding: 15px 0;
+  clear: both;
+}
+
+.review {
+  background:rgba(0,0,0,0.5);
+  padding: 10px 20px 10px 20px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.thumbnail {
+  max-height: 100px;
+}
+
+.review-user-details img{
+  padding: 10px;
+}

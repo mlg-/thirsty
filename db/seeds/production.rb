@@ -143,7 +143,49 @@ Review.create!(title: "YUM!",
               body: "Fantastic mozzarella bar, and everything from appetizer to dessert is outstanding.",
               user_id: 1,
               bar_id: 10
-              )
+)
+
+Review.create!(title: "Fix the basketball hoop!",
+              rating: 3,
+              body: "SO bro-y and SO fun. Cash only. Don't try to order red wine otherwise people will make fun of you. They have the basketball arcade game in the back, but one of the hoops is always broken which is aggravating - taking off a star for that. (Please fix it!!)",
+              user_id: 1,
+              bar_id: 1
+)
+
+Review.create!(title: "Great deals!",
+              rating: 3,
+              body: "I just LUV Beacon Hill Pub! Great deals! Terrific discounts! I got a vodka drink for just 4 buckaroonies! WOW! I def recommend this hang out!",
+              user_id: 1,
+              bar_id: 1
+)
+
+Review.create!(title: "Great menu",
+              rating: 4,
+              body: "The cocktail menu had really interesting drinks and the cold tea for two was so refreshing.",
+              user_id: 2,
+              bar_id: 2
+)
+
+Review.create!(title: "Get the gin gin!",
+              rating: 4,
+              body: "Of course duck fat fries on the side and their special gin gin mule which is my favorite!",
+              user_id: 3,
+              bar_id: 2
+)
+
+Review.create!(title: "It's cold!",
+              rating: 4,
+              body: "We wore these capes that kept us from becoming popsicles. The ice is real!",
+              user_id: 3,
+              bar_id: 3
+)
+
+Review.create!(title: "It's cold!",
+              rating: 4,
+              body: "Being from Canada, I don't know why we tried this place, as the cold and frost are not novelties to us LOL... nonetheless it was still pretty neat!",
+              user_id: 4,
+              bar_id: 3
+)
 
 User.create!(email: "joelauncher@mailinator.com",
             password: "MLGcdMMdv",
