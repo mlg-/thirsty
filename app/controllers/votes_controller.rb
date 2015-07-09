@@ -1,8 +1,7 @@
 class VotesController < ApplicationController
   def index
     review = Review.find(params[:review_id])
-    total = review.votes.map { |v| v[:value] }
-    @score = total.reduce(:+)
+    @score = Vote.total_score(review.votes)
     respond_to do |format|
       format.json { render json: @score }
     end
