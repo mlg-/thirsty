@@ -371,51 +371,51 @@ Review.create!(title: "YUM!",
 )
 
 User.create!(email: "steve-o@mailinator.com",
-            password: "MLGcdMMdv",
-            admin: false
+             password: "MLGcdMMdv",
+             admin: false
 )
 
 User.create!(email: "tracy0279@mailinator.com",
-            password: "MLGcdMMdv",
-            admin: false
+             password: "MLGcdMMdv",
+             admin: false
 )
 
 User.create!(email: "sirbeersalot@mailinator.com",
-            password: "MLGcdMMdv",
-            admin: false
+             password: "MLGcdMMdv",
+             admin: false
 )
 
 User.create!(email: "saraholdren@mailinator.com",
-            password: "MLGcdMMdv",
-            admin: false
+             password: "MLGcdMMdv",
+             admin: false
 )
 
 User.create!(email: "jonsey@mailinator.com",
-            password: "MLGcdMMdv",
-            admin: false
+             password: "MLGcdMMdv",
+             admin: false
 )
 
 User.create!(email: "billiamwiggins@mailinator.com",
-            password: "MLGcdMMdv",
-            admin: false
+             password: "MLGcdMMdv",
+             admin: false
 )
 
 User.create!(email: "josephinesera@mailinator.com",
-            password: "MLGcdMMdv",
-            admin: false
+             password: "MLGcdMMdv",
+             admin: false
 )
 
 User.create!(email: "mikewalsh@mailinator.com",
-            password: "MLGcdMMdv",
-            admin: false
+             password: "MLGcdMMdv",
+             admin: false
 )
 
 User.create!(email: "whiskeylover@mailinator.com",
-            password: "MLGcdMMdv",
-            admin: false
+             password: "MLGcdMMdv",
+             admin: false
 )
 
 User.create!(email: "barfly@mailinator.com",
-            password: "MLGcdMMdv",
-            admin: true
+             password: "MLGcdMMdv",
+             admin: true
 )
