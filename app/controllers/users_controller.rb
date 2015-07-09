@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       redirect_to users_path
     else
       flash[:notice] = @user.errors.full_messages.join(" ")
-      redirect to bars_path
+      redirect to users_path
     end
   end
 

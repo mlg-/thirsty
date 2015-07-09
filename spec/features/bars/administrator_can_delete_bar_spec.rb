@@ -24,9 +24,10 @@ feature 'administrator user can delete a bar', %{
     click_link("Delete")
 
     expect(page).to have_content("Bar deleted")
+    expect(page).to_not have_content(bar.name)
   end
 
-  scenario 'user cannot delete bar' do
+  scenario 'nonadmin user cannot see deletion link of review' do
     user = FactoryGirl.create(:user)
     bar = FactoryGirl.create(:bar)
 
@@ -35,19 +36,6 @@ feature 'administrator user can delete a bar', %{
     visit bar_path(bar)
 
     expect(page).to_not have_content("Delete")
-  end
-
-  scenario 'bar is no longer in database' do
-    admin = FactoryGirl.create(:user, admin: true)
-    bar = FactoryGirl.create(:bar)
-
-    sign_in_as(admin)
-
-    visit bar_path(bar)
-
-    click_link("Delete")
-
-    expect(page).to_not have_content(bar.name)
   end
 
   scenario 'bar details page no longer exists' do
@@ -61,21 +49,20 @@ feature 'administrator user can delete a bar', %{
     click_link("Delete")
 
     expect(page).to_not have_content(bar.name)
-    expect(page).to_not have_content(bar.address)
-    expect(page).to_not have_content(bar.state)
   end
 
   scenario 'reviews of this bar no longer exist' do
     admin = FactoryGirl.create(:user, admin: true)
     review = FactoryGirl.create(:review)
+    bar = FactoryGirl.create(:bar)
 
     sign_in_as(admin)
 
     visit bar_path(review.bar)
 
-    click_link("Delete", match: :first)
+    click_link("Delete", match: :last)
+    visit root_path
 
-    expect(page).to_not have_content(review.title)
-    expect(page).to_not have_content(review.body)
+    expect(page).to_not have_content(bar.name)
   end
 end

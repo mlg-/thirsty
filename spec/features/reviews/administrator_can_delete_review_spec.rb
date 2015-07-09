@@ -24,7 +24,7 @@ feature 'administrator can delete review', %{
     expect(page).to have_content('Delete Review')
   end
 
-  scenario 'admin can delete a review' do
+  scenario 'review is no longer on bar details page' do
     bar = FactoryGirl.create(:bar)
     admin = FactoryGirl.create(:user, admin: true)
     review = FactoryGirl.create(:review, bar: bar)
@@ -39,7 +39,7 @@ feature 'administrator can delete review', %{
     expect(page).to have_content("Your Review Has Been Deleted")
   end
 
-  scenario 'nonadmin cannot delete a review' do
+  scenario 'nonadmin cannot see deletion link of a review' do
     bar = FactoryGirl.create(:bar)
     user = FactoryGirl.create(:user)
 

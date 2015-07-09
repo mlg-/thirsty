@@ -33,13 +33,13 @@ feature 'administrator can delete user', %{
     visit root_path
     click_link ('Manage Users')
     find(".user_#{user.id}").click
-    visit root_path
+    # visit root_path
     click_link 'Sign Out'
     sign_in_as(user)
     expect(page).to have_content('Invalid email or password')
   end
 
-  scenario 'nonadmin cannot delete user' do
+  scenario 'nonadmin cannot see link showing all users' do
     user = FactoryGirl.create(:user)
     FactoryGirl.create(:user)
 
