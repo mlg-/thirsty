@@ -1,3 +1,53 @@
+User.create!(email: "steve-o@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "tracy0279@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "sirbeersalot@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "saraholdren@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "jonsey@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "billiamwiggins@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "josephinesera@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "mikewalsh@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "whiskeylover@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: false
+)
+
+User.create!(email: "barfly@mailinator.com",
+             password: ENV["USER_PASSWORD"],
+             admin: true
+)
+
 Bar.create!(name: "Beacon Hill Pub",
             address: "149 Charles St",
             city: "Boston",
@@ -6,8 +56,7 @@ Bar.create!(name: "Beacon Hill Pub",
             description: "Dive bar with fun pub arcade games.",
             url: "https://www.facebook.com/pages/The-Beacon-Hill-Pub/
             131684050683",
-            photo_url: "http://www.hubnightlife.com/wp-content/gallery/
-            beacon-hill-pub/beacon-hill-pub-1.jpg",
+            photo_url: "http://i62.tinypic.com/ou5ab4.jpg",
             seating_capacity: 268,
             food: false,
             outdoor_seating: false,
@@ -21,8 +70,7 @@ Bar.create!(name: "Shojo",
             zip: "02111",
             description: "Hip Asian fusion cuisine with unique drinks.",
             url: "http://www.shojoboston.com/",
-            photo_url: "http://s3-media4.fl.yelpcdn.com/bphoto/
-            4CM-xJvBeUEf24taHCaOog/o.jpg",
+            photo_url: "http://i61.tinypic.com/34dotgh.jpg",
             seating_capacity: 80,
             food: true,
             outdoor_seating: false,
@@ -36,8 +84,7 @@ Bar.create!(name: "Frost Ice Loft",
             zip: "02109",
             description: "Small cocktail bar made entirely of ice.",
             url: "http://frosticeloft.com/",
-            photo_url: "http://frosticeloft.com/wp-content/uploads/2015/06/
-            FrostIceBar_Interior7.0.0-1.jpg",
+            photo_url: "http://i59.tinypic.com/2n80p68.jpg",
             seating_capacity: 150,
             food: false,
             outdoor_seating: false,
@@ -52,7 +99,7 @@ Bar.create!(name: "21st Amendment",
             description: "Low-key watering hole (across from the State House)
             serving beer, cocktails & bar bites.",
             url: "http://21stboston.com/",
-            photo_url: "http://21stboston.com/_images/sec/directions.jpg",
+            photo_url: "http://i60.tinypic.com/21f0coy.jpg",
             seating_capacity: 96,
             food: true,
             outdoor_seating: false,
@@ -67,8 +114,7 @@ Bar.create!(name: "The Hill Tavern",
             description: "Classic-feeling neighborhood joint serving bar food &
             weekend brunch, plus seasonal beers & drinks.",
             url: "www.thehilltavern.com/",
-            photo_url: "https://c1.staticflickr.com/1/158/
-            362072340_117676a43e_b.jpg",
+            photo_url: "http://i59.tinypic.com/n39pc8.jpg",
             seating_capacity: 150,
             food: true,
             outdoor_seating: true,
@@ -83,8 +129,7 @@ Bar.create!(name: "Estragon",
             description: "Airy dining room for inspired renderings of Spanish
             favorites, creative cocktails & large wine list.",
             url: "http://www.estragontapas.com/",
-            photo_url: "http://cache.boston.com/bonzai-fba/Original_Photo/
-            2009/01/22/estragonerikjacobs__1232642483_9319.jpg",
+            photo_url: "http://i61.tinypic.com/doaya1.jpg",
             seating_capacity: 106,
             food: true,
             outdoor_seating: true,
@@ -99,8 +144,7 @@ Bar.create!(name: "Corner Cafe",
             description: "Late-night neighborhood hangout offering booze,
             casual grub & sports TVs in a down-to-earth setting.",
             url: "None",
-            photo_url: "http://www.north-end-boston.com/images/exterior_pics/
-            3715.jpg",
+            photo_url: "http://i58.tinypic.com/15x6exd.jpg",
             seating_capacity: 32,
             food: false,
             outdoor_seating: false,
@@ -115,8 +159,7 @@ Bar.create!(name: "75 Chestnut",
             description: "Beacon Hill haunt serving a variety of simple American
              dishes in quaint quarters with a rustic bar.",
             url: "http://75chestnut.com/",
-            photo_url: "http://www.hubnightlife.com/wp-content/gallery/
-            75-chestnut/75-chesnut-5.jpg",
+            photo_url: "http://i59.tinypic.com/xf11de.jpg",
             seating_capacity: 85,
             food: true,
             outdoor_seating: false,
@@ -131,8 +174,7 @@ Bar.create!(name: "JJ Foley's Bar & Grille",
             description: "Neighborhood pub founded in 1909 offering
             Irish-American eats & diversions such as TVs & darts.",
             url: "https://www.facebook.com/pages/JJ-Foleys/43154335890",
-            photo_url: "https://cbsboston.files.wordpress.com/2012/03/
-            nightlife-music-jukebox-bars-jj-foleys-bar-grill.png",
+            photo_url: "http://i61.tinypic.com/25rpemg.jpg",
             seating_capacity: 219,
             food: true,
             outdoor_seating: false,
@@ -147,8 +189,7 @@ Bar.create!(name: "Scampo",
             description: "Liberty Hotel's chic destination (& former jailhouse)
             for Italian fare & mozzarella bar.",
             url: "http://scampoboston.com/",
-            photo_url: "http://www.tinyurbankitchen.com/wp-content/
-            uploads/2011/09/5671710170_f32480082c_o.jpg",
+            photo_url: "http://i58.tinypic.com/28b8mtv.jpg",
             seating_capacity: 392,
             food: true,
             outdoor_seating: true,
@@ -379,54 +420,4 @@ Review.create!(title: "YUM!",
                on the food but they did have a gluten free menu",
                user_id: 10,
                bar_id: 10
-)
-
-User.create!(email: "steve-o@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "tracy0279@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "sirbeersalot@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "saraholdren@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "jonsey@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "billiamwiggins@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "josephinesera@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "mikewalsh@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "whiskeylover@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: false
-)
-
-User.create!(email: "barfly@mailinator.com",
-             password: ENV["USER_PASSWORD"],
-             admin: true
 )
