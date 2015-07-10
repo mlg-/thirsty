@@ -16,7 +16,12 @@ class Bar < ActiveRecord::Base
 
   paginates_per 10
 
-  def self.search(search)
-    where('name LIKE ?', "%#{search}%")
-  end
+  include PgSearch
+  pg_search_scope :search, against:
+    [:name,
+     :address,
+     :city,
+     :state,
+     :zip,
+     :description], using: { tsearch: { prefix: true } }
 end
