@@ -19,4 +19,12 @@ class Bar < ActiveRecord::Base
   def self.search(search)
     where('name LIKE ?', "%#{search}%")
   end
+
+  def self.display_icon(attribute)
+    if attribute == false
+      return '<i class="fa fa-check" id="green"></i>'
+    else
+      return '<i class="fa fa-ban" id="red"></i>'
+    end
+  end
 end
