@@ -19,9 +19,9 @@ class Bar < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search, against:
     [:name,
-    :address,
-    :city,
-    :state,
-    :zip,
-    :description], using: { tsearch: { prefix: true } }
+     :address,
+     :city,
+     :state,
+     :zip,
+     :description], using: { tsearch: { prefix: true } }
 end
