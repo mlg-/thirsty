@@ -19,4 +19,21 @@ class Bar < ActiveRecord::Base
   def self.search(search)
     where('name LIKE ?', "%#{search}%")
   end
+
+  def self.display_icon(attribute)
+    if attribute == false
+      return '<i class="fa fa-check" id="green"></i>'
+    else
+      return '<i class="fa fa-ban" id="red"></i>'
+    end
+  end
+
+  include PgSearch
+  pg_search_scope :search, against:
+    [:name,
+     :address,
+     :city,
+     :state,
+     :zip,
+     :description], using: { tsearch: { prefix: true } }
 end

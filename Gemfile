@@ -73,4 +73,6 @@ gem 'foundation-rails'
 gem 'pry-rails', group: [:development, :test]
 gem "dotenv-rails"
 gem 'rails_12factor', group: :production
+
 gem "rails-erd"
+gem 'pg_search'
