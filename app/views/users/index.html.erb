@@ -1,18 +1,18 @@
 <div class="table">
   <div class="large-4 columns">
     <div class="user-list-row">
-<h1>&nbsp&nbspUser List</h1>
-</div>
-<br>
-<% @users.all.each do |user| %>
-  <div class="bar_row">
+      <h1>User List</h1>
+    </div>
+    <br>
+  <% @users.all.each do |user| %>
+    <div class="bar_row">
       <%= user.email %>
-  <% if user_signed_in? && current_user.admin? %>
-<div style="float: right; clear: both; padding: 0.4rem; margin-bottom: 0px" class="small button">
-    <%=link_to "Delete User", admin_destroy_user_path(user.id), class: "user_#{user.id}", method: :delete, data: { confirm: "You sure?" } %>
-</div>
-</div>
-  <% end %>
-<% end %>
-</div>
+      <% if user_signed_in? && current_user.admin? %>
+      <div style="float: right; clear: both; padding: 0.4rem; margin-bottom: 0px" class="small button">
+        <%=link_to "Delete User", admin_destroy_user_path(user.id), class: "user_#{user.id}", method: :delete, data: { confirm: "You sure?" } %>
+      </div>
+    </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
