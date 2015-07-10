@@ -8,8 +8,7 @@
     <div class="bar_row">
       <%= user.email %>
       <% if user_signed_in? && current_user.admin? %>
-      <div style="float: right; clear: both; padding: 0.4rem; margin-bottom: 0px" class="small button">
-        <%=link_to "Delete User", admin_destroy_user_path(user.id), class: "user_#{user.id}", method: :delete, data: { confirm: "You sure?" } %>
+      <div style="float: right; clear: both; padding: 0px 0.4rem; margin-bottom: 0px;" class="small button">        <%=link_to "Delete User", admin_destroy_user_path(user.id), class: "user_#{user.id}", method: :delete, data: { confirm: "You sure?" } %>
       </div>
     </div>
       <% end %>
