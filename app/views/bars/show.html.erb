@@ -44,9 +44,13 @@
   <div class="row">
     <div id="review-<%= review.id %>" class="row review-container">
       <div class="small-3 columns">
-        <%= link_to "<i id=\"upvote-review-#{review.id}\" class=\"fa fa-arrow-up\"><span class=\"sr-only\">Upvote Review #{review.id}</span></i>".html_safe, review_votes_path(review, value: 1), method: :post, class: "upvote", id: "upvote-#{review.id}" %>
+        <% if current_user != nil %>
+          <%= link_to "<i id=\"upvote-review-#{review.id}\" class=\"fa fa-arrow-up\"><span class=\"sr-only\">Upvote Review #{review.id}</span></i>".html_safe, review_votes_path(review, value: 1), method: :post, class: "upvote", id: "upvote-#{review.id}" %>
+        <% end %>
         <div class="votes" id="votes-review-<%= review.id %>"><%= Vote.total_score(review.votes) %></div>
-        <%= link_to "<i id=\"downvote-review-#{review.id}\" class=\"fa fa-arrow-down\"><span class=\"sr-only\">Downvote Review #{review.id}</span></i>".html_safe, review_votes_path(review, value: -1), method: :post, class: "downvote", id: "downvote-#{review.id}" %>
+        <% if current_user != nil %>
+          <%= link_to "<i id=\"downvote-review-#{review.id}\" class=\"fa fa-arrow-down\"><span class=\"sr-only\">Downvote Review #{review.id}</span></i>".html_safe, review_votes_path(review, value: -1), method: :post, class: "downvote", id: "downvote-#{review.id}" %>
+        <% end %>
       </div>
 
 

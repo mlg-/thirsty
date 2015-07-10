@@ -103,4 +103,12 @@ So I can show how I feel
           ".votes")).to have_content(3)
   end
 
+  scenario 'visitor tries to upvote a review', js: true do
+    review = FactoryGirl.create(:review)
+
+    visit bar_path(review.bar)
+
+    expect(page).to_not have_content("Upvote Review #{review.id}")
+  end
+
 end
