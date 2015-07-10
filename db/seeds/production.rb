@@ -196,8 +196,6 @@ Bar.create!(name: "Scampo",
             pet_friendly: false
             )
 
-
-
 Review.create!(title: "Fix the basketball hoop!",
                rating: 3,
                body: "SO bro-y and SO fun. Cash only. Don't try to order red
