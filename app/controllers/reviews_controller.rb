@@ -39,8 +39,8 @@ class ReviewsController < ApplicationController
         render :edit
       end
     else
-      redirect_to bars_path
       flash[:notice] = 'You do not have permisson to do that'
+      redirect_to bars_path
     end
   end
 
@@ -61,9 +61,10 @@ class ReviewsController < ApplicationController
       else
         flash[:notice] = @review.errors.full_messages.join(" ")
       end
+      redirect_to bar_path(@bar)
     else
+      flash[:notice] = 'You do not have permisson to do that'
       redirect_to bars_path
-      flash[:notice] = 'You do no have permisson to do that'
     end
   end
 

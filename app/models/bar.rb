@@ -27,4 +27,13 @@ class Bar < ActiveRecord::Base
       return '<i class="fa fa-ban" id="red"></i>'
     end
   end
+
+  include PgSearch
+  pg_search_scope :search, against:
+    [:name,
+     :address,
+     :city,
+     :state,
+     :zip,
+     :description], using: { tsearch: { prefix: true } }
 end
