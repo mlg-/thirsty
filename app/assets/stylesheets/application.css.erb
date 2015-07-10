@@ -11,14 +11,22 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require foundation_and_overrides
  *= require font-awesome
+ *= require_self
  *= depend_on_asset "background.jpg"
 */
 
 h1 {
-  color: white
+  color: #EA9850;
+}
+
+h2 {
+  color: white;
+  background-color: #5c1212;
+  margin: 10px 0;
+  padding-left: 20px;
+  border-bottom: 2px solid #EA9850;
 }
 
 h3 {
@@ -28,14 +36,56 @@ h3 {
 h4 {
   color: #ffffff
 }
+
 body {
-  background-image: url("<%= asset_path('background.jpg') %>");
-  background-size: cover;
+  background: url('<%= asset_path("background.jpg") %> ') no-repeat center center fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+p {
+  font-size: 1.4rem;
+}
+
+a {
+  font-size: 1.4rem;
+}
+
+a:hover {
+  color: #EA9850;
+}
+
+nav.top-bar {
+  padding: 0 5em;
+  font-size: 2em;
+}
+
+.alert-box {
+  font-size: 1.2em;
+}
+
+li.name h1 a {
+  font-size: 2em;
+}
+
+.transparent-container {
+  background:rgba(0,0,0,0.7);
+  margin: 0 8%;
+}
+
+.transparent-container p img {
+  margin: 20px;
 }
 
 .title {
-  background:rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.7);
   padding: 10px 20px 10px 20px;
+}
+
+ul.right li a {
+  font-size: 1.5rem;
 }
 
 .bar_row {
@@ -83,8 +133,21 @@ a.upvote, a.downvote {
 }
 
 .votes {
-  font-size: 1.3em;
-  margin-left: 6px;
+  font-family: Georgia, serif;
+  font-size: 2em;
+  margin-left: 7px;
+}
+
+.upvote i {
+  font-size: 1.5em;
+}
+
+.downvote i {
+  font-size: 1.5em;
+}
+
+.review-container:first-child, .review-container:last-child {
+  border: none;
 }
 
 .review-container {
@@ -132,6 +195,19 @@ a.upvote, a.downvote {
 }
 
 .sidebar {
+  background-color: rgba(0,0,0,0.5);
+}
+
+#green {
+  color: #3F890B !important;
+}
+
+#red {
+  color: #E1292B !important;
+}
+
+.pagination {
+  font-size: 1.2em;
   background-color: rgba(0,0,0,0.5);
 }
 
